@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 
 import engine.Cmd;
 import engine.GameController;
+import model.Joueur;
 
 
 /**
@@ -13,17 +14,29 @@ import engine.GameController;
  * 
  */
 public class PacmanController implements GameController {
-
+	
+	private Joueur j;
+	
 	/**
 	 * commande en cours
 	 */
-	private Cmd commandeEnCours;
+	//private Cmd commandeEnCours;
+	
+	/**
+	 * construction du controleur par defaut le controleur n'a pas de commande
+	 */
+	public PacmanController(Joueur joueur) {
+		//this.commandeEnCours = Cmd.IDLE;
+		
+		j = joueur;
+	}
+	
 	
 	/**
 	 * construction du controleur par defaut le controleur n'a pas de commande
 	 */
 	public PacmanController() {
-		this.commandeEnCours = Cmd.IDLE;
+		j.setCommandeEnCours(Cmd.IDLE);
 	}
 
 	/**
@@ -33,7 +46,7 @@ public class PacmanController implements GameController {
 	 * @return commande faite par le joueur
 	 */
 	public Cmd getCommand() {
-		return this.commandeEnCours;
+		return j.getCommandeEnCours();
 	}
 
 	@Override
@@ -46,22 +59,22 @@ public class PacmanController implements GameController {
 		// si on appuie sur 'q',commande joueur est gauche
 		case 'q':
 		case 'Q':
-			this.commandeEnCours = Cmd.LEFT;
+			j.setCommandeEnCours(Cmd.LEFT);
 			break;
 		// si on appuie sur 'd',commande joueur est droite
 		case 'd':
 		case 'D':
-			this.commandeEnCours = Cmd.RIGHT;
+			j.setCommandeEnCours(Cmd.RIGHT);
 			break;
 		// si on appuie sur 'z',commande joueur est haut
 		case 'z':
 		case 'Z':
-			this.commandeEnCours = Cmd.UP;
+			j.setCommandeEnCours(Cmd.UP);
 			break;
 		// si on appuie sur 's',commande joueur est bas
 		case 's':
 		case 'S':
-			this.commandeEnCours = Cmd.DOWN;
+			j.setCommandeEnCours(Cmd.DOWN);
 			break;
 		}
 
@@ -72,7 +85,7 @@ public class PacmanController implements GameController {
 	 * met a jour les commandes quand le joueur relache une touche
 	 */
 	public void keyReleased(KeyEvent e) {
-		this.commandeEnCours = Cmd.IDLE;
+		j.setCommandeEnCours(Cmd.IDLE);
 	}
 
 	@Override
