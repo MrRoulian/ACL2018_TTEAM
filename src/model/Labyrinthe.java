@@ -15,13 +15,13 @@ public class Labyrinthe {
 	private void construire(){
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
-				map[i][j]=new Sol();
+				map[i][j]=new Sol(i,j);
 			}
 		}
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 				if (i==0 || i==width-1 || j==0 || j==height-1){
-					map[i][j]=new Mur();
+					map[i][j]=new Mur(i,j);
 				}
 			}
 		}
