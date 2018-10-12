@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 
 import engine.Cmd;
 import engine.GameController;
+import model.Joueur;
 
 
 /**
@@ -14,16 +15,20 @@ import engine.GameController;
  */
 public class PacmanController implements GameController {
 
+	private Joueur j;
+	
 	/**
 	 * commande en cours
 	 */
-	private Cmd commandeEnCours;
+	//private Cmd commandeEnCours;
 	
 	/**
 	 * construction du controleur par defaut le controleur n'a pas de commande
 	 */
-	public PacmanController() {
-		this.commandeEnCours = Cmd.IDLE;
+	public PacmanController(Joueur joueur) {
+		//this.commandeEnCours = Cmd.IDLE;
+		
+		j = joueur;
 	}
 
 	/**
@@ -32,9 +37,9 @@ public class PacmanController implements GameController {
 	 * 
 	 * @return commande faite par le joueur
 	 */
-	public Cmd getCommand() {
+	/*public Cmd getCommand() {
 		return this.commandeEnCours;
-	}
+	}*/
 
 	@Override
 	/**
