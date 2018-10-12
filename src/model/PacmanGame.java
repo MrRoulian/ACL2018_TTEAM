@@ -41,6 +41,7 @@ public class PacmanGame implements Game {
 	 */
 	@Override
 	public void evolve(Cmd commande) {
+		// TODO Faire evoluer toutes les entites et le lab
 		System.out.println("Execute "+commande);
 	}
 
