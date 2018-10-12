@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,7 +16,12 @@ import engine.Game;
  * 
  */
 public class PacmanGame implements Game {
-
+	
+	/**
+	 * Map du jeu
+	 */
+	protected Labyrinthe map;
+	
 	/**
 	 * constructeur avec fichier source pour le help
 	 * 
@@ -32,6 +38,9 @@ public class PacmanGame implements Game {
 		} catch (IOException e) {
 			System.out.println("Help not available");
 		}
+		
+		// Initialisation de la map
+		map = new Labyrinthe(15, 15);
 	}
 
 	/**
@@ -52,6 +61,11 @@ public class PacmanGame implements Game {
 	public boolean isFinished() {
 		// le jeu n'est jamais fini
 		return false;
+	}
+
+	@Override
+	public void draw(BufferedImage im) {
+		map.draw(im);
 	}
 
 }

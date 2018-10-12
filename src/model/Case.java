@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.image.BufferedImage;
+
 public abstract class Case {
 	
 	protected int x,y;
@@ -12,6 +14,8 @@ public abstract class Case {
 	}
 	
 	public abstract void trigger();
+	
+	public abstract void dessiner(BufferedImage img);
 	
 	public boolean isSolid() {
 		return !traversable;

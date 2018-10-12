@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.image.BufferedImage;
+
 public class Labyrinthe {
 
 	private int height, width;
@@ -31,6 +33,11 @@ public class Labyrinthe {
 		assert(x<0 || x>=width):"le x de getCase est en dehors du domaine du tableau";
 		assert(y<0 || y>=height):"le y de getCase est en dehors du domaine du tableau";
 		return map[x][y];
+	}
+
+	public void draw(BufferedImage im) {
+		// TODO Dessine le labyrinthe
+		// pour chaque case dessiner la case
 	}
 	
 	
