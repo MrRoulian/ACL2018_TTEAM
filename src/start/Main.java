@@ -1,7 +1,7 @@
 package start;
 
 import model.PacmanPainter;
-import controler.PacmanController;
+import controller.PacmanController;
 import engine.GameEngineGraphical;
 import model.PacmanGame;
 
