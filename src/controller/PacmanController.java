@@ -1,4 +1,4 @@
-package controler;
+package controller;
 
 import java.awt.event.KeyEvent;
 
@@ -14,7 +14,7 @@ import model.Joueur;
  * 
  */
 public class PacmanController implements GameController {
-
+	
 	private Joueur j;
 	
 	/**
@@ -30,6 +30,14 @@ public class PacmanController implements GameController {
 		
 		j = joueur;
 	}
+	
+	
+	/**
+	 * construction du controleur par defaut le controleur n'a pas de commande
+	 */
+	public PacmanController() {
+		j.setCommandeEnCours(Cmd.IDLE);
+	}
 
 	/**
 	 * quand on demande les commandes, le controleur retourne la commande en
@@ -37,9 +45,9 @@ public class PacmanController implements GameController {
 	 * 
 	 * @return commande faite par le joueur
 	 */
-	/*public Cmd getCommand() {
-		return this.commandeEnCours;
-	}*/
+	public Cmd getCommand() {
+		return j.getCommandeEnCours();
+	}
 
 	@Override
 	/**
@@ -49,9 +57,24 @@ public class PacmanController implements GameController {
 
 		switch (e.getKeyChar()) {
 		// si on appuie sur 'q',commande joueur est gauche
-		case 'l':
-		case 'L':
-			this.commandeEnCours = Cmd.LEFT;
+		case 'q':
+		case 'Q':
+			j.setCommandeEnCours(Cmd.LEFT);
+			break;
+		// si on appuie sur 'd',commande joueur est droite
+		case 'd':
+		case 'D':
+			j.setCommandeEnCours(Cmd.RIGHT);
+			break;
+		// si on appuie sur 'z',commande joueur est haut
+		case 'z':
+		case 'Z':
+			j.setCommandeEnCours(Cmd.UP);
+			break;
+		// si on appuie sur 's',commande joueur est bas
+		case 's':
+		case 'S':
+			j.setCommandeEnCours(Cmd.DOWN);
 			break;
 		}
 
@@ -62,7 +85,7 @@ public class PacmanController implements GameController {
 	 * met a jour les commandes quand le joueur relache une touche
 	 */
 	public void keyReleased(KeyEvent e) {
-		this.commandeEnCours = Cmd.IDLE;
+		j.setCommandeEnCours(Cmd.IDLE);
 	}
 
 	@Override

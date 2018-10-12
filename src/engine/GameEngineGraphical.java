@@ -53,11 +53,11 @@ public class GameEngineGraphical {
 
 		// creation de l'interface graphique
 		this.gui = new GraphicalInterface(this.gamePainter,this.gameController);
-
+		Cmd c;
 		// boucle de game
 		while (!this.game.isFinished()) {
 			// demande controle utilisateur
-			Cmd c = this.gameController.getCommand();
+			c = this.gameController.getCommand();
 			// fait evoluer le game
 			this.game.evolve(c);
 			// affiche le game
