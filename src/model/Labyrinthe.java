@@ -2,7 +2,7 @@ package model;
 
 import java.awt.Graphics2D;
 
-public class Labyrinthe {
+public class Labyrinthe implements Cloneable{
 
 	private int height, width;
 	private Case[][] map;
@@ -42,6 +42,21 @@ public class Labyrinthe {
 				case1.dessiner(g);
 			}
 		}
+	}
+
+	@Override
+	protected Labyrinthe clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		Labyrinthe lab= (Labyrinthe) super.clone();
+		return lab;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public int getWidth() {
+		return width;
 	}
 	
 	

@@ -29,9 +29,10 @@ public class PacmanGame implements Game {
 	
 	/**
 	 * constructeur avec fichier source pour le help
+	 * @throws CloneNotSupportedException 
 	 * 
 	 */
-	public PacmanGame(String source) {
+	public PacmanGame(String source) throws CloneNotSupportedException {
 		BufferedReader helpReader;
 		try {
 			helpReader = new BufferedReader(new FileReader(source));
@@ -48,13 +49,14 @@ public class PacmanGame implements Game {
 		map = new Labyrinthe(15, 15);
 		
 		// Initialisation du joueur 
-		joueur = new Joueur();
+		joueur = new Joueur(map.clone());
 	}
 
 	@Override
 	public void evoluer(Commande commandeUser) {
 		// TODO Faire evoluer tout les objet qui ont besoin 
 		joueur.update(commandeUser);
+		
 	}
 
 	@Override

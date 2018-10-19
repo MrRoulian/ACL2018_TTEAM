@@ -8,6 +8,8 @@ public abstract class Entite {
 
 	protected int x, y;
 	
+	protected Labyrinthe labyrinthe;
+	
 	//protectd Sprite sprite;
 	
 	protected abstract void update(Commande commande);
