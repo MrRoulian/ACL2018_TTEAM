@@ -1,8 +1,10 @@
 package start;
 
 import model.PacmanPainter;
-import controller.PacmanController;
-import engine.GameEngineGraphical;
+import moteurJeu.MoteurGraphique;
+
+import java.awt.Dimension;
+
 import model.PacmanGame;
 
 /**
@@ -12,14 +14,20 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 
+		
+		
+		
+		Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		int height = (int)dimension.getHeight();
+		int width = (int)dimension.getWidth();
+		
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("helpFilePacman.txt");
-		PacmanPainter painter = new PacmanPainter();
-		PacmanController controller = new PacmanController();
+		PacmanPainter painter = new PacmanPainter(game);
 
 		// classe qui lance le moteur de jeu generique
-		GameEngineGraphical engine = new GameEngineGraphical(game, painter, controller);
-		engine.run();
+		MoteurGraphique moteur = new MoteurGraphique(game, painter);
+		moteur.lancerJeu(width,height);
 	}
 
 }

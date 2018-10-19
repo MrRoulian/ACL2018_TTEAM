@@ -1,12 +1,12 @@
 package model;
 
-import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import engine.Cmd;
-import engine.Game;
+import moteurJeu.Commande;
+import moteurJeu.Game;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -43,29 +43,21 @@ public class PacmanGame implements Game {
 		map = new Labyrinthe(15, 15);
 	}
 
-	/**
-	 * faire evoluer le jeu suite a une commande
-	 * 
-	 * @param commande
-	 */
 	@Override
-	public void evolve(Cmd commande) {
-		// TODO Faire evoluer toutes les entites et le lab
-		System.out.println("Execute "+commande);
+	public void evoluer(Commande commandeUser) {
+		// TODO Faire evoluer tout les objet qui ont besoin 
+		
 	}
 
-	/**
-	 * verifier si le jeu est fini
-	 */
 	@Override
-	public boolean isFinished() {
+	public boolean etreFini() {
 		// le jeu n'est jamais fini
 		return false;
 	}
 
 	@Override
-	public void draw(BufferedImage im) {
-		map.draw(im);
+	public void dessiner(Graphics2D g) {
+		// TODO Demande a tout les elements du jeu de se dessiner 
 	}
 
 }

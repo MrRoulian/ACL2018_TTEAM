@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import engine.GamePainter;
+import moteurJeu.DessinJeu;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -12,7 +12,7 @@ import engine.GamePainter;
  * afficheur graphique pour le game
  * 
  */
-public class PacmanPainter implements GamePainter {
+public class PacmanPainter implements DessinJeu {
 
 	/**
 	 * la taille des cases
@@ -21,32 +21,22 @@ public class PacmanPainter implements GamePainter {
 	protected static final int HEIGHT = 100;
 
 	/**
-	 * appelle constructeur parent
-	 * 
-	 * @param game
-	 *            le jeutest a afficher
+	 * Le jeu a dessiner sur l'image
 	 */
-	public PacmanPainter() {
-	}
+	private PacmanGame jeu;
 
 	/**
-	 * methode  redefinie de Afficheur retourne une image du jeu
+	 * Constructeur recuperant le jeu a dessiner 
+	 * @param j
 	 */
-	@Override
-	public void draw(BufferedImage im) {
-		Graphics2D crayon = (Graphics2D) im.getGraphics();
-		crayon.setColor(Color.blue);
-		crayon.fillOval(0,0,10,10);
+	public PacmanPainter(PacmanGame j) {
+		this.jeu = j;
 	}
 
 	@Override
-	public int getWidth() {
-		return WIDTH;
-	}
-
-	@Override
-	public int getHeight() {
-		return HEIGHT;
+	public void dessiner(BufferedImage image) {
+		Graphics2D g2d = (Graphics2D) image.getGraphics();
+		jeu.dessiner(g2d);
 	}
 
 }
