@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
 
 public abstract class Case {
 	
@@ -15,7 +15,7 @@ public abstract class Case {
 	
 	public abstract void trigger();
 	
-	public abstract void dessiner(BufferedImage img);
+	public abstract void dessiner(Graphics2D g);
 	
 	public boolean isSolid() {
 		return !traversable;

@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -17,8 +16,8 @@ public class PacmanPainter implements DessinJeu {
 	/**
 	 * la taille des cases
 	 */
-	protected static final int WIDTH = 100;
-	protected static final int HEIGHT = 100;
+	protected static final int WIDTH = 35;
+	protected static final int HEIGHT = 35;
 
 	/**
 	 * Le jeu a dessiner sur l'image

@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
 
 public class Labyrinthe {
 
@@ -35,9 +35,13 @@ public class Labyrinthe {
 		return map[x][y];
 	}
 
-	public void draw(BufferedImage im) {
-		// TODO Dessine le labyrinthe
-		// pour chaque case dessiner la case
+	public void dessiner(Graphics2D g) {
+		// Dessine le labyrinthe
+		for (Case[] cases : map) {
+			for (Case case1 : cases) {
+				case1.dessiner(g);
+			}
+		}
 	}
 	
 	

@@ -1,6 +1,7 @@
 package model;
 
-import java.awt.image.BufferedImage;
+import java.awt.Color;
+import java.awt.Graphics2D;
 
 public class Mur extends Case {
 
@@ -15,9 +16,9 @@ public class Mur extends Case {
 	}
 
 	@Override
-	public void dessiner(BufferedImage img) {
-		// TODO Auto-generated method stub
-		
+	public void dessiner(Graphics2D g) {
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
 	}
 
 }

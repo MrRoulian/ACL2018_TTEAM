@@ -23,6 +23,11 @@ public class PacmanGame implements Game {
 	protected Labyrinthe map;
 	
 	/**
+	 * Joueur du jeu
+	 */
+	protected Joueur joueur;
+	
+	/**
 	 * constructeur avec fichier source pour le help
 	 * 
 	 */
@@ -41,12 +46,15 @@ public class PacmanGame implements Game {
 		
 		// Initialisation de la map
 		map = new Labyrinthe(15, 15);
+		
+		// Initialisation du joueur 
+		joueur = new Joueur();
 	}
 
 	@Override
 	public void evoluer(Commande commandeUser) {
 		// TODO Faire evoluer tout les objet qui ont besoin 
-		
+		joueur.update(commandeUser);
 	}
 
 	@Override
@@ -57,7 +65,13 @@ public class PacmanGame implements Game {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		// TODO Demande a tout les elements du jeu de se dessiner 
+		// Demande a tout les elements du jeu de se dessiner 
+		
+		// Dabord la map 
+		this.map.dessiner(g);
+		
+		// EN FIN le joueur (il est dessiné au dessus de tout autre elements
+		this.joueur.dessiner(g);
 	}
 
 }
