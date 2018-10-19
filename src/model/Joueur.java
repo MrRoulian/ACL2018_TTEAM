@@ -17,11 +17,27 @@ public class Joueur extends Entite{
 		g.setColor(Color.BLUE);
 		g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
 	}
+	
 
 	@Override
 	protected void update(Commande commande) {
-		// TODO Gerer le deplacement en fonction de la commande 
+		// TODO Gerer le deplacement en fonction de la commande
+		
+		if(commande.droite) {
+			this.x++;
+		}
+		if(commande.gauche) {
+			this.x--;
+		}
+		if(commande.haut) {
+			this.y--;
+		}
+		if(commande.bas) {
+			this.y++;
+		}
+		
 		
 	}
+
 	
 }
