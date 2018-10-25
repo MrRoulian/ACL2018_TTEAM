@@ -1,0 +1,5 @@
+2.1. Héros
+1) Le héros est placé sur le plateau de jeu et peu s’y déplacer à l’intérieur.
+
+2.2. Labyrinthe
+1) Le labyrinthe est généré par défaut - le héros ne peut pas traverser les murs. 
