@@ -1,5 +1,15 @@
-2.1. Héros
-1) Le héros est placé sur le plateau de jeu et peu s’y déplacer à l’intérieur.
+Sprint 1 :
+Alexis ABLI-BOUYO :
+Adaptation d'une interface graphique
+Representation des cases du labyrinthe
 
-2.2. Labyrinthe
-1) Le labyrinthe est généré par défaut - le héros ne peut pas traverser les murs. 
+Alexis BARTHELEMY :
+Adaptation d'une interface graphique
+Affichage des elements du jeu 
+
+Gauthier BRIN :
+Deplacement du Hero 
+Collision avec les mur 
+
+Julien BAILLY :
+Creation du labyrinthe initial 
