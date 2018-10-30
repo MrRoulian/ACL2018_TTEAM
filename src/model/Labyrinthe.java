@@ -30,6 +30,8 @@ public class Labyrinthe {
 	}
 	
 	public Case getCase(int x, int y){
+		assert(x<0 || x>=width):"le x :"+x+" de getCase est en dehors du domaine du tableau width :"+width;
+		assert(y<0 || y>=height):"le y de getCase est en dehors du domaine du tableau";
 		return map[x][y];
 	}
 
