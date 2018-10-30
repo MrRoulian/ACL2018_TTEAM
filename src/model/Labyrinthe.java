@@ -30,7 +30,7 @@ public class Labyrinthe implements Cloneable{
 	}
 	
 	public Case getCase(int x, int y){
-		assert(x<0 || x>=width):"le x de getCase est en dehors du domaine du tableau";
+		assert(x<0 || x>=width):"le x :"+x+" de getCase est en dehors du domaine du tableau width :"+width;
 		assert(y<0 || y>=height):"le y de getCase est en dehors du domaine du tableau";
 		return map[x][y];
 	}
@@ -41,6 +41,24 @@ public class Labyrinthe implements Cloneable{
 			for (Case case1 : cases) {
 				case1.dessiner(g);
 			}
+		}
+	}
+	
+	
+	public void affiche(int x,int y) {
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				if(i==x && j==y) {
+					System.out.print("8");
+				}else {
+					if(map[i][j].isSolid()) {
+						System.out.print("#");
+					}else {
+						System.out.print("'");
+					}	
+				}
+			}
+			System.out.println(" ");
 		}
 	}
 

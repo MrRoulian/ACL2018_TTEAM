@@ -16,4 +16,12 @@ public abstract class Entite {
 	
 	protected abstract void dessiner(Graphics2D g);
 
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 }

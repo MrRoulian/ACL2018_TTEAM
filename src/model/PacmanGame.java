@@ -76,4 +76,20 @@ public class PacmanGame implements Game {
 		this.joueur.dessiner(g);
 	}
 
+	public Labyrinthe getMap() {
+		return map;
+	}
+
+	public Joueur getJoueur() {
+		return joueur;
+	}
+	
+	public void affcihe() {
+		System.out.println(joueur.x+" "+joueur.y);
+		System.out.println(map.getHeight());
+		System.out.println(map.getWidth());
+		map.affiche(joueur.x,joueur.y);
+
+	}
+
 }

@@ -9,8 +9,8 @@ public class Joueur extends Entite{
 	
 	public static int test=0;
 	public Joueur(Labyrinthe lab) {
-		this.x = 1;
-		this.y = 1;
+		this.x = 5;
+		this.y = 5;
 		this.labyrinthe=lab;
 	}
 
