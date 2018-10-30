@@ -49,7 +49,7 @@ public class PacmanGame implements Game {
 		map = new Labyrinthe(15, 15);
 		
 		// Initialisation du joueur 
-		joueur = new Joueur(map.clone());
+		joueur = new Joueur(map);
 	}
 
 	@Override
