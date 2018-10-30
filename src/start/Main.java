@@ -13,10 +13,6 @@ import model.PacmanGame;
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException, CloneNotSupportedException {
-
-		
-		
-		
 		Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		int height = (int)dimension.getHeight();
 		int width = (int)dimension.getWidth();
