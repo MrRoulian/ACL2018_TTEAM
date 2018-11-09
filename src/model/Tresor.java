@@ -7,11 +7,15 @@ public class Tresor extends Special {
 
 	public Tresor(int x, int y) {
 		super(x, y);
+		traversable = true;
 	}
 
 	@Override
 	public void trigger(Entite entite) {
-		triggered = true;
+		if (!triggered) {
+			triggered = true;
+			Labyrinthe.nbTreasureLeft--;
+		}
 	}
 
 	@Override

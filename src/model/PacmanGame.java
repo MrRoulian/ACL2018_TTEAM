@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import moteurJeu.Commande;
 import moteurJeu.Game;
@@ -26,6 +27,11 @@ public class PacmanGame implements Game {
 	 * Joueur du jeu
 	 */
 	protected Joueur joueur;
+	
+	/**
+	 * Represente si le jeu est fini
+	 */
+	protected boolean fini;
 	
 	/**
 	 * constructeur avec fichier source pour le help
@@ -57,12 +63,19 @@ public class PacmanGame implements Game {
 		// TODO Faire evoluer tout les objet qui ont besoin 
 		joueur.update(commandeUser);
 		
+		testerFin();
+	}
+
+	private void testerFin() {
+		if (Labyrinthe.nbTreasureLeft <= 0) {
+			fini = true;
+			System.out.println("Le jeu est fini GG");
+		}
 	}
 
 	@Override
 	public boolean etreFini() {
-		// le jeu n'est jamais fini
-		return false;
+		return fini;
 	}
 
 	@Override
