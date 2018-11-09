@@ -8,6 +8,7 @@ import moteurJeu.Commande;
 public class Joueur extends Entite{
 
 	public static int test=0;
+	
 	public Joueur(Labyrinthe lab) {
 		this.x = 5;
 		this.y = 5;
@@ -35,5 +36,10 @@ public class Joueur extends Entite{
 		if(commande.bas) {
 			bas();
 		}
+	}
+	
+	public void setPosition(int x1,int y1) {
+		this.x=x1;
+		this.y=y1;
 	}
 }
