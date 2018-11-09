@@ -11,6 +11,7 @@ public class Magique extends Special {
 	@Override
 	public void trigger(Entite entite) {
 		
+		triggered = true;
 	}
 
 	@Override
