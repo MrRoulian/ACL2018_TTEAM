@@ -34,6 +34,12 @@ public class PacmanGame implements Game {
 	protected boolean fini;
 	
 	/**
+	 * Represente le niveau actuel
+	 */
+	protected int levelActuel;
+	private static int MAX_LEVEL = 3;
+	
+	/**
 	 * constructeur avec fichier source pour le help
 	 * @throws CloneNotSupportedException 
 	 * 
@@ -56,20 +62,26 @@ public class PacmanGame implements Game {
 		
 		// Initialisation du joueur 
 		joueur = new Joueur(map);
+		
+		// Initialisation du level a 1
+		levelActuel = 1;
 	}
 
 	@Override
 	public void evoluer(Commande commandeUser) {
-		// TODO Faire evoluer tout les objet qui ont besoin 
 		joueur.update(commandeUser);
 		
 		testerFin();
 	}
 
 	private void testerFin() {
-		if (Labyrinthe.nbTreasureLeft <= 0) {
+		if (Labyrinthe.nbTreasureLeft <= 0 && levelActuel == MAX_LEVEL) {
 			fini = true;
 			System.out.println("Le jeu est fini GG");
+		} else {
+			if (Labyrinthe.nbTreasureLeft <= 0) {
+				map.construire(++levelActuel);
+			}
 		}
 	}
 

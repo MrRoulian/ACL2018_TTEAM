@@ -17,15 +17,14 @@ public class Labyrinthe {
 		this.height = height;
 		this.width = width;
 		this.map = new Case[width][height];
-		construire(3);
+		construire(1);
 	}
 
-	private void construire(int level){
+	public void construire(int level){
 		try {
 			map = ConstructeurMapFichier.getInstance().newMap(level);
 		}
 		catch(GenerationException ex) {
-			ex.printStackTrace();
 			try {
 				map = ConstructeurMapBase.getInstance().newMap(level);
 			} catch (GenerationException e) {
