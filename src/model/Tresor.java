@@ -20,8 +20,13 @@ public class Tresor extends Special {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		g.setColor(Color.YELLOW);
-		g.fillRect(x * PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		if (triggered) {
+			g.setColor(Color.WHITE);
+			g.fillRect(x * PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		} else {
+			g.setColor(Color.YELLOW);
+			g.fillRect(x * PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		}
 	}
 
 }
