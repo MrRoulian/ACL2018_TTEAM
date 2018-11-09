@@ -13,7 +13,7 @@ public abstract class Case {
 		this.y = y;
 	}
 	
-	public abstract void trigger();
+	public abstract void trigger(Entite entite);
 	
 	public abstract void dessiner(Graphics2D g);
 	

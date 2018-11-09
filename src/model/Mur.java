@@ -11,7 +11,7 @@ public class Mur extends Case {
 	}
 
 	@Override
-	public void trigger() {
+	public void trigger(Entite entite) {
 		// Ne fait rien
 	}
 

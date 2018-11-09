@@ -42,6 +42,7 @@ public class Joueur extends Entite{
 			if(labyrinthe.getCase(x, ++y).isSolid()) {
 				this.y--;
 			}
-		}	
+		}
+		labyrinthe.getCase(x, y).trigger(this);
 	}
 }
