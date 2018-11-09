@@ -1,6 +1,10 @@
 package model;
 
 import java.awt.Graphics2D;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import javax.swing.JFileChooser;
 
 public class Labyrinthe {
 
@@ -14,21 +18,67 @@ public class Labyrinthe {
 		construire();
 	}
 
+	private static String fileChooser() {
+		JFileChooser dialogue = new JFileChooser();
+		dialogue.showOpenDialog(null);
+		return dialogue.getSelectedFile().getPath(); 
+	}
+
 	private void construire(){
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				map[i][j]=new Sol(i,j);
-			}
-		}
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				if (i==0 || i==width-1 || j==0 || j==height-1){
-					map[i][j]=new Mur(i,j);
+		try {
+
+			BufferedReader br = new BufferedReader(new FileReader(fileChooser()));
+			String line = br.readLine();
+			String[] valeurs = line.split(",");
+			width = Integer.parseInt(valeurs[0]);
+			height = Integer.parseInt(valeurs[1]);
+
+			line = br.readLine();
+			int i = 0;
+			while (line != null) {
+
+				valeurs = line.split(",");
+
+				for (int j = 0; j < height; j++) {
+					switch(Integer.parseInt(valeurs[j])) {
+					case 0:
+						map[i][j]=new Sol(i,j);
+						break;
+					case 1:
+						map[i][j]=new Mur(i,j);
+						break;
+
+
+					}
+
+
 				}
+
+				line = br.readLine(); System.out.println(i);
+				i++;
+			}
+
+		}
+		catch(Throwable t) {
+			t.printStackTrace(System.err) ;
+			
+			
+			for (int i = 0; i < width; i++) {
+				for (int j = 0; j < height; j++) {
+					map[i][j]=new Sol(i,j);
+				}
+			}
+			for (int i = 0; i < width; i++) {
+				for (int j = 0; j < height; j++) {
+					if (i==0 || i==width-1 || j==0 || j==height-1){
+						map[i][j]=new Mur(i,j);
+					}
+				}
+
 			}
 		}
 	}
-	
+
 	public Case getCase(int x, int y){
 		return map[x][y];
 	}
@@ -41,8 +91,8 @@ public class Labyrinthe {
 			}
 		}
 	}
-	
-	
+
+
 	public void affiche(int x,int y) {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
@@ -67,6 +117,6 @@ public class Labyrinthe {
 	public int getWidth() {
 		return width;
 	}
-	
-	
+
+
 }
