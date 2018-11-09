@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -62,19 +62,19 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void start() {
+	public void start_R() {
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 5);
 		assertEquals(j.getY(), 5);
 	}
 	
 	@Test(expected = NullPointerException.class)
-	public void mouvementnull() throws Exception {
+	public void mouvementnull_B() throws Exception {
 			jeu.evoluer(null);
 	}
 	
 	@Test
-	public void droite() {
+	public void droite_R() {
 		jeu.evoluer(droite);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 6);
@@ -82,7 +82,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void droiteCollisionMur() {
+	public void droiteCollisionMur_B() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(droite);
 		}
@@ -92,7 +92,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void gauche() {
+	public void gauche_R() {
 		jeu.evoluer(gauche);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 4);
@@ -100,7 +100,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void gaucheCollisionMur() {
+	public void gaucheCollisionMur_B() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(gauche);
 		}
@@ -110,7 +110,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void haut() {
+	public void haut_R() {
 		jeu.evoluer(haut);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 5);
@@ -118,7 +118,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void hautCollisionMur() {
+	public void hautCollisionMur_B() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(haut);
 		}
@@ -128,7 +128,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void bas() {
+	public void bas_R() {
 		jeu.evoluer(bas);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 5);
@@ -136,7 +136,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void basCollisionMur() {
+	public void basCollisionMur_B() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(bas);
 		}
@@ -146,7 +146,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void hautbas() {
+	public void hautbas_R() {
 		jeu.evoluer(hautbas);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 5);
@@ -154,7 +154,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void gauchedroite() {
+	public void gauchedroite_R() {
 		jeu.evoluer(gauchedroite);
 		Joueur j=jeu.getJoueur();
 		Assert.assertEquals(j.getX(), 5);
@@ -163,7 +163,7 @@ public class TestPersonnage {
 	
 	//idem pour le haut droite
 	@Test
-	public void hautgauche() {
+	public void hautgauche_R() {
 		jeu.evoluer(hautgauche);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 4);
@@ -171,7 +171,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void hautgaucheCollisionMur() {
+	public void hautgaucheCollisionMur_B() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(hautgauche);
 		}
@@ -182,7 +182,7 @@ public class TestPersonnage {
 	
 	//idem pour le bas droite
 	@Test
-	public void basgauche() {
+	public void basgauche_R() {
 		jeu.evoluer(basgauche);
 		Joueur j=jeu.getJoueur();
 		Assert.assertEquals(j.getX(), 4);
@@ -190,7 +190,7 @@ public class TestPersonnage {
 	}
 	
 	@Test
-	public void basgaucheCollisionMur() {
+	public void basgaucheCollisionMur_B() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(basgauche);
 		}
@@ -202,7 +202,7 @@ public class TestPersonnage {
 	
 	//idem pour le basgauchedroit gauchehautdroite basdroitehaut
 	@Test
-	public void basgauchehaut() {
+	public void basgauchehaut_R() {
 		jeu.evoluer(basgauchehaut);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 4);
@@ -210,7 +210,7 @@ public class TestPersonnage {
 	}
 
 	@Test
-	public void basgauchehautdroite() {
+	public void basgauchehautdroite_R() {
 		jeu.evoluer(basgauchehautdroite);
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 5);
@@ -219,7 +219,7 @@ public class TestPersonnage {
 	
 	//idem selon la direction
 	@Test
-	public void crossCheckDeplacement() {
+	public void Deplacement_CrossC() {
 		jeu.evoluer(basgauchehaut);
 		Joueur j=jeu.getJoueur();
 		
@@ -229,12 +229,11 @@ public class TestPersonnage {
 		assertEquals(j.getX(), j2.getX());
 		assertEquals(j.getY(), j2.getY());
 		
-		
 	}
 	
 	
 	@Test
-	public void crossCheckCollision() {
+	public void Collision_CrossC() {
 		for(int i=0;i<20;i++) {
 			jeu.evoluer(bas);
 			jeuCrosCheck.evoluer(bas);
