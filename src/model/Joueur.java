@@ -24,24 +24,16 @@ public class Joueur extends Entite{
 	@Override
 	protected void update(Commande commande) {
 		if(commande.droite) {
-			if(labyrinthe.getCase(++x, y).isSolid()) {
-				this.x--;
-			}
+			droite();
 		}
 		if(commande.gauche) {
-			if(labyrinthe.getCase(--x, y).isSolid()) {
-				this.x++;
-			}
+			gauche();
 		}
 		if(commande.haut) {
-			if(labyrinthe.getCase(x, --y).isSolid()) {
-				this.y++;
-			}
+			haut();
 		}
 		if(commande.bas) {
-			if(labyrinthe.getCase(x, ++y).isSolid()) {
-				this.y--;
-			}
-		}	
+			bas();
+		}
 	}
 }
