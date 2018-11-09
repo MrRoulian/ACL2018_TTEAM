@@ -1,9 +1,12 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JFileChooser;
 
@@ -12,10 +15,26 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	private static final int CODE_CASE_SOL = 0;
 	private static final int CODE_CASE_MUR = 1;
 	private static final int CODE_CASE_TRESOR = 2;
+	
+	private HashMap<Integer, ArrayList<String>> mapFichierMapParLevel;
 
 	private static ConstructeurMapFichier instance;
 	
-	private ConstructeurMapFichier() {}
+	private ConstructeurMapFichier() {
+		mapFichierMapParLevel = new HashMap<Integer, ArrayList<String>>();
+		// ----- Map de level 1 ----- //
+		ArrayList<String> level1 = new ArrayList<String>();
+		level1.add("map/level1map1.csv");
+		mapFichierMapParLevel.put(1, level1);
+		// ----- Map de level 2 ----- //
+		ArrayList<String> level2 = new ArrayList<String>();
+		level2.add("map/level2map1.csv");
+		mapFichierMapParLevel.put(2, level2);
+		// ----- Map de level 3 ----- //
+		ArrayList<String> level3 = new ArrayList<String>();
+		level3.add("map/level3map1.csv");
+		mapFichierMapParLevel.put(3, level3);
+	}
 	
 	public static ConstructeurMapFichier getInstance() {
 		if (instance == null) {
@@ -28,11 +47,10 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		Case[][] map;
 		BufferedReader br;
 		try {
-			String file = fileChooser();
-			if (file == null) {
-				throw new FileNotFoundException();
-			}
-			br = new BufferedReader(new FileReader(file));
+			ArrayList<String> listeFichier = mapFichierMapParLevel.get(level);
+			int numFile = (int)(listeFichier.size() * Math.random());
+			String file = listeFichier.get(numFile);
+			br = new BufferedReader(new FileReader(new File(file)));
 			String line = br.readLine();
 			String[] valeurs = line.split(",");
 			int width = Integer.parseInt(valeurs[0]);
@@ -70,14 +88,5 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 			GenerationException ex = new GenerationException("Le fichier de la map n'est pas valide");
 			throw ex;
 		}
-	}
-	
-	private static String fileChooser() throws FileNotFoundException{
-		JFileChooser dialogue = new JFileChooser();
-		dialogue.showOpenDialog(null);
-		if (dialogue.getSelectedFile() == null) {
-			throw new FileNotFoundException();
-		}
-		return dialogue.getSelectedFile().getPath(); 
 	}
 }

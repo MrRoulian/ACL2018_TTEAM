@@ -17,7 +17,7 @@ public class Labyrinthe {
 		this.height = height;
 		this.width = width;
 		this.map = new Case[width][height];
-		construire(5);
+		construire(3);
 	}
 
 	private void construire(int level){
@@ -25,6 +25,7 @@ public class Labyrinthe {
 			map = ConstructeurMapFichier.getInstance().newMap(level);
 		}
 		catch(GenerationException ex) {
+			ex.printStackTrace();
 			try {
 				map = ConstructeurMapBase.getInstance().newMap(level);
 			} catch (GenerationException e) {
