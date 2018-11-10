@@ -7,6 +7,8 @@ import java.io.FileReader;
 import javax.swing.JFileChooser;
 
 public class Labyrinthe {
+	
+	public static int nbTreasureLeft;
 
 	private int height, width;
 	private Case[][] map;
@@ -15,66 +17,18 @@ public class Labyrinthe {
 		this.height = height;
 		this.width = width;
 		this.map = new Case[width][height];
-		construire();
+		construire(1);
 	}
 
-	private static String fileChooser() {
-		JFileChooser dialogue = new JFileChooser();
-		dialogue.showOpenDialog(null);
-		return dialogue.getSelectedFile().getPath(); 
-	}
-
-	private void construire(){
+	public void construire(int level){
 		try {
-
-			BufferedReader br = new BufferedReader(new FileReader(fileChooser()));
-			String line = br.readLine();
-			String[] valeurs = line.split(",");
-			width = Integer.parseInt(valeurs[0]);
-			height = Integer.parseInt(valeurs[1]);
-
-			line = br.readLine();
-			int i = 0;
-			while (line != null) {
-
-				valeurs = line.split(",");
-
-				for (int j = 0; j < height; j++) {
-					switch(Integer.parseInt(valeurs[j])) {
-					case 0:
-						map[i][j]=new Sol(i,j);
-						break;
-					case 1:
-						map[i][j]=new Mur(i,j);
-						break;
-
-
-					}
-
-
-				}
-
-				line = br.readLine(); System.out.println(i);
-				i++;
-			}
-
+			map = ConstructeurMapFichier.getInstance().newMap(level);
 		}
-		catch(Throwable t) {
-			t.printStackTrace(System.err) ;
-			
-			
-			for (int i = 0; i < width; i++) {
-				for (int j = 0; j < height; j++) {
-					map[i][j]=new Sol(i,j);
-				}
-			}
-			for (int i = 0; i < width; i++) {
-				for (int j = 0; j < height; j++) {
-					if (i==0 || i==width-1 || j==0 || j==height-1){
-						map[i][j]=new Mur(i,j);
-					}
-				}
-
+		catch(GenerationException ex) {
+			try {
+				map = ConstructeurMapBase.getInstance().newMap(level);
+			} catch (GenerationException e) {
+				e.printStackTrace();
 			}
 		}
 	}
@@ -116,7 +70,5 @@ public class Labyrinthe {
 
 	public int getWidth() {
 		return width;
-	}
-
-
+	}	
 }

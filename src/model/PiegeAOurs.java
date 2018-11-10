@@ -12,7 +12,8 @@ public class PiegeAOurs extends Special {
 
 	@Override
 	public void trigger(Entite entite) {
-				
+		
+		triggered = true;
 	}
 
 	@Override
