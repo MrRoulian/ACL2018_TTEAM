@@ -15,6 +15,9 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	private static final int CODE_CASE_SOL = 0;
 	private static final int CODE_CASE_MUR = 1;
 	private static final int CODE_CASE_TRESOR = 2;
+	private static final int CODE_CASE_PASSAGE = 3;
+	private static final int CODE_CASE_PIEGE_A_OURS = 4;
+	private static final int CODE_CASE_MAGIQUE = 5;
 	
 	private HashMap<Integer, ArrayList<String>> mapFichierMapParLevel;
 
@@ -73,6 +76,15 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 					case CODE_CASE_TRESOR:
 						map[i][j] = new Tresor(i, j);
 						Labyrinthe.nbTreasureLeft++;
+						break;
+					case CODE_CASE_PASSAGE:
+						map[i][j]=new Passage(i,j);
+						break;
+					case CODE_CASE_PIEGE_A_OURS:
+						map[i][j]=new PiegeAOurs(i,j);
+						break;
+					case CODE_CASE_MAGIQUE:
+						map[i][j]=new Magique(i,j);
 						break;
 					}
 				}
