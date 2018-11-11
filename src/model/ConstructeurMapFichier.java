@@ -44,6 +44,8 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		ArrayList<String> level3 = new ArrayList<String>();
 		level3.add("map/level3map1.csv");
 		level3.add("map/level3map2.csv");
+		level3.add("map/level3map3.csv");
+		level3.add("map/level3map4.csv");
 		mapFichierMapParLevel.put(3, level3);
 	}
 	
