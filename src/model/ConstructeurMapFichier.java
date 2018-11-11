@@ -51,6 +51,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	}
 	
 	public Case[][] newMap(int level) throws GenerationException {
+		Labyrinthe.nbTreasureLeft = 0;
 		Case[][] map;
 		BufferedReader br;
 		try {

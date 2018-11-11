@@ -36,7 +36,7 @@ public class PacmanGame implements Game {
 	/*
 	 * boolean pour lancer le jeu en version test
 	 */
-	protected boolean test=false;
+	public static boolean test=false;
 	
 	/**
 	 * Represente le niveau actuel
@@ -63,7 +63,7 @@ public class PacmanGame implements Game {
 		}
 		
 		// Initialisation de la map
-		map = new Labyrinthe(15, 15);
+		map = new Labyrinthe();
 		
 		// Initialisation du joueur 
 		joueur = new Joueur(map);
@@ -91,14 +91,15 @@ public class PacmanGame implements Game {
 		}
 		
 		// Initialisation de la map
-		map = new Labyrinthe(15, 15);
+		map = new Labyrinthe();
 		
 		// Initialisation du joueur 
 		joueur = new Joueur(map);
 		
 		if(t==true) {
 		// Initialisation du level a 1
-			levelActuel = -1;
+			levelActuel = 1;
+			MAX_LEVEL = 1;
 			test=t;
 		}else {
 			levelActuel=1;

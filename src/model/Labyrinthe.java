@@ -13,10 +13,7 @@ public class Labyrinthe {
 	private int height, width;
 	private Case[][] map;
 
-	public Labyrinthe(int width, int height){
-		this.height = height;
-		this.width = width;
-		this.map = new Case[width][height];
+	public Labyrinthe(){
 		construire(1);
 	}
 
