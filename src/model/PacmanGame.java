@@ -33,6 +33,11 @@ public class PacmanGame implements Game {
 	 */
 	protected boolean fini;
 	
+	/*
+	 * boolean pour lancer le jeu en version test
+	 */
+	protected boolean test=false;
+	
 	/**
 	 * Represente le niveau actuel
 	 */
@@ -66,12 +71,47 @@ public class PacmanGame implements Game {
 		// Initialisation du level a 1
 		levelActuel = 1;
 	}
+	
+	/**
+	 * constructeur pour le test avec fichier source pour le help
+	 * @throws CloneNotSupportedException 
+	 * 
+	 */
+	public PacmanGame(String source,boolean t) throws CloneNotSupportedException {
+		BufferedReader helpReader;
+		try {
+			helpReader = new BufferedReader(new FileReader(source));
+			String ligne;
+			while ((ligne = helpReader.readLine()) != null) {
+				System.out.println(ligne);
+			}
+			helpReader.close();
+		} catch (IOException e) {
+			System.out.println("Help not available");
+		}
+		
+		// Initialisation de la map
+		map = new Labyrinthe(15, 15);
+		
+		// Initialisation du joueur 
+		joueur = new Joueur(map);
+		
+		if(t==true) {
+		// Initialisation du level a 1
+			levelActuel = -1;
+			test=t;
+		}else {
+			levelActuel=1;
+		}
+		
+	}
 
 	@Override
 	public void evoluer(Commande commandeUser) {
 		joueur.update(commandeUser);
-		
-		testerFin();
+		if(!test) {
+			testerFin();
+		}
 	}
 
 	private void testerFin() {
