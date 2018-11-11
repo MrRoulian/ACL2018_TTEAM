@@ -27,8 +27,8 @@ public class TestPersonnage {
 	
 	@Before
 	public void initialise() throws CloneNotSupportedException {
-		jeu=new PacmanGame("helpFilePacman.txt");
-		jeuCrosCheck=new PacmanGame("helpFilePacman.txt");
+		jeu=new PacmanGame("helpFilePacmanPerso.txt",true);
+		jeuCrosCheck=new PacmanGame("helpFilePacmanPerso.txt",true);
 		gauche=new Commande();
 		gauche.gauche=true;
 		droite=new Commande();

@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,8 +22,9 @@ public class TestCase {
 	
 	@Before
 	public void initialise() throws CloneNotSupportedException {
-		jeu=new PacmanGame("helpFilePacman.txt",true);
-		jeuCrosCheck=new PacmanGame("helpFilePacman.txt",true);
+		jeu=new PacmanGame("helpFilePacmanCase.txt",true);
+		System.out.println();
+		//jeuCrosCheck=new PacmanGame("helpFilePacman.txt",true);
 		gauche=new Commande();
 		gauche.gauche=true;
 		droite=new Commande();
@@ -65,14 +68,18 @@ public class TestCase {
 	
 	@Test
 	public void nextCaseIsntTresor() {
-		Joueur j=jeu.getJoueur();
-		Labyrinthe laby=jeu.getMap();
-		Case c=laby.getCase(j.getX()+1, j.getY());
 		
 	}
-	
+	@Test
 	public void ramasserTresor() {
-		
+		System.out.println(Labyrinthe.nbTreasureLeft+"");
+		jeu.evoluer(bas);
+		jeu.evoluer(bas);
+		jeu.evoluer(gauche);
+		jeu.evoluer(gauche);
+		jeu.evoluer(gauche);
+		Labyrinthe laby=jeu.getMap();
+		assertEquals(Labyrinthe.nbTreasureLeft, 0);
 	}
 	
 	public void ramasserAllTresor() {
