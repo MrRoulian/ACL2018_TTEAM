@@ -32,14 +32,18 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		// ----- Map de level 1 ----- //
 		ArrayList<String> level1 = new ArrayList<String>();
 		level1.add("map/level1map1.csv");
+		level1.add("map/level1map2.csv");
+		level1.add("map/level1map3.csv");
 		mapFichierMapParLevel.put(1, level1);
 		// ----- Map de level 2 ----- //
 		ArrayList<String> level2 = new ArrayList<String>();
 		level2.add("map/level2map1.csv");
+		level2.add("map/level2map2.csv");
 		mapFichierMapParLevel.put(2, level2);
 		// ----- Map de level 3 ----- //
 		ArrayList<String> level3 = new ArrayList<String>();
 		level3.add("map/level3map1.csv");
+		level3.add("map/level3map2.csv");
 		mapFichierMapParLevel.put(3, level3);
 	}
 	
@@ -73,23 +77,23 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 				for (int j = 0; j < height; j++) {
 					switch(Integer.parseInt(valeurs[j])) {
 					case CODE_CASE_SOL:
-						map[i][j]=new Sol(i,j);
+						map[j][i]=new Sol(j,i);
 						break;
 					case CODE_CASE_MUR:
-						map[i][j]=new Mur(i,j);
+						map[j][i]=new Mur(j,i);
 						break;
 					case CODE_CASE_TRESOR:
-						map[i][j] = new Tresor(i, j);
+						map[j][i] = new Tresor(j, i);
 						Labyrinthe.nbTreasureLeft++;
 						break;
 					case CODE_CASE_PASSAGE:
-						map[i][j]=new Passage(i,j);
+						map[j][i]=new Passage(j,i);
 						break;
 					case CODE_CASE_PIEGE_A_OURS:
-						map[i][j]=new PiegeAOurs(i,j);
+						map[j][i]=new PiegeAOurs(j,i);
 						break;
 					case CODE_CASE_MAGIQUE:
-						map[i][j]=new Magique(i,j);
+						map[j][i]=new Magique(j,i);
 						break;
 					}
 				}
