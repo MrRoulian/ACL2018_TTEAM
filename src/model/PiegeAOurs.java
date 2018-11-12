@@ -29,7 +29,10 @@ public class PiegeAOurs extends Special {
 			g.setColor(Color.RED);
 			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
 			g.setColor(Color.GRAY);
-			g.fillRect(x * PacmanPainter.WIDTH + (int)(PacmanPainter.WIDTH*0.05), y * PacmanPainter.HEIGHT + (int)(PacmanPainter.HEIGHT*0.05), (int)(PacmanPainter.WIDTH*0.9), (int)(PacmanPainter.HEIGHT*0.9));
+			g.fillRect(	x * PacmanPainter.WIDTH + (int)(PacmanPainter.WIDTH*0.1),
+						y * PacmanPainter.HEIGHT + (int)(PacmanPainter.HEIGHT*0.1),
+						(int)(PacmanPainter.WIDTH*0.8),
+						(int)(PacmanPainter.HEIGHT*0.8));
 		}
 	}
 

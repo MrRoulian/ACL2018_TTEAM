@@ -5,14 +5,16 @@ import java.awt.Graphics2D;
 
 public class Magique extends Special {
 
+	private int orientation;
 	public Magique(int x, int y) {
 		super(x, y);
 		traversable = true;
+		orientation = (int)(Math.random()*4);
 	}
 
 	@Override
 	public void trigger(Entite entite) {
-		switch ((int)(Math.random()*4)){
+		switch (orientation){
 		case 0:
 			entite.haut();
 			entite.haut();
@@ -34,13 +36,8 @@ public class Magique extends Special {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		if (triggered) {
-			g.setColor(Color.WHITE);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-		} else {
-			g.setColor(Color.BLUE);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-		}
+		g.setColor(Color.CYAN);
+		g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
 	}
 
 }
