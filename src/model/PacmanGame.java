@@ -90,18 +90,22 @@ public class PacmanGame implements Game {
 			System.out.println("Help not available");
 		}
 		
-		// Initialisation de la map
-		map = new Labyrinthe();
-		
-		// Initialisation du joueur 
-		joueur = new Joueur(map);
-		
 		if(t==true) {
+			// Initialisation de la map
+			map = new Labyrinthe(-1);
+			
+			// Initialisation du joueur 
+			joueur = new Joueur(map);
 		// Initialisation du level a 1
-			levelActuel = 1;
-			MAX_LEVEL = 1;
+			levelActuel = -1;
+			//MAX_LEVEL = 1;
 			test=t;
 		}else {
+			// Initialisation de la map
+			map = new Labyrinthe();
+			
+			// Initialisation du joueur 
+			joueur = new Joueur(map);
 			levelActuel=1;
 		}
 		

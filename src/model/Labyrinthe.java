@@ -16,6 +16,9 @@ public class Labyrinthe {
 	public Labyrinthe(){
 		construire(1);
 	}
+	public Labyrinthe(int a){
+		construire(a);
+	}
 
 	public void construire(int level){
 		try {
@@ -47,8 +50,9 @@ public class Labyrinthe {
 
 
 	public void affiche(int x,int y) {
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
+		System.out.println("map ");
+		for (int i = 0; i < map.length; i++) {
+			for (int j = 0; j < map[0].length-1; j++) {
 				if(i==x && j==y) {
 					System.out.print("8");
 				}else {
@@ -56,10 +60,10 @@ public class Labyrinthe {
 						System.out.print("#");
 					}else {
 						System.out.print("'");
-					}	
+					}
 				}
 			}
-			System.out.println(" ");
+			System.out.println("#");
 		}
 	}
 

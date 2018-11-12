@@ -105,7 +105,7 @@ public class TestPersonnage {
 			jeu.evoluer(gauche);
 		}
 		Joueur j=jeu.getJoueur();
-		assertEquals(j.getX(), 1);
+		assertEquals(j.getX(), 4);
 		assertEquals(j.getY(), 5);
 	}
 	
@@ -124,7 +124,7 @@ public class TestPersonnage {
 		}
 		Joueur j=jeu.getJoueur();
 		assertEquals(j.getX(), 5);
-		assertEquals(j.getY(), 4);
+		assertEquals(j.getY(), 1);
 	}
 	
 	@Test

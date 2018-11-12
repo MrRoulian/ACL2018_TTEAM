@@ -9,6 +9,7 @@ import model.Case;
 import model.Joueur;
 import model.Labyrinthe;
 import model.PacmanGame;
+import model.Tresor;
 import moteurJeu.Commande;
 
 public class TestCase {
@@ -35,61 +36,73 @@ public class TestCase {
 		bas.bas=true;
 	}
 	
-	@Test
+
 	public void marcheSurPiege() {
 		
 	}
 	//piege activable une fois
 	
-	@Test
+
 	public void marcheSurEffet() {
 		
 	}
 	
-	@Test
+
 	public void prendreTeleporte() {
 		
 	}
 	
-	@Test
+
 	public void prendreEtReprendreTeleporte() {
 		
 	}
 	
-	@Test
 	public void prendreTeleporte_crossC() {
 		
 	}
 	
-	@Test
-	public void istresor() {
-		
-	}
 	
 	@Test
 	public void nextCaseIsntTresor() {
-		
+		jeu.getJoueur().setPosition(2, 1);
+		Joueur j=jeu.getJoueur();
+		Case c=jeu.getMap().getCase(j.getX()-1, j.getY());
+		assertTrue(c instanceof Tresor);
 	}
+	
 	@Test
 	public void ramasserTresor() {
-		System.out.println(Labyrinthe.nbTreasureLeft+"");
-		jeu.evoluer(bas);
-		jeu.evoluer(bas);
+		assertEquals(Labyrinthe.nbTreasureLeft, 4);
+		jeu.getJoueur().setPosition(2, 1);
 		jeu.evoluer(gauche);
+		assertEquals(Labyrinthe.nbTreasureLeft, 3);
+	}
+	
+	@Test
+	public void ramasserAllTresor() {
+		assertEquals(Labyrinthe.nbTreasureLeft, 4);
+		jeu.getJoueur().setPosition(2, 1);
 		jeu.evoluer(gauche);
+		assertEquals(Labyrinthe.nbTreasureLeft, 3);
+		jeu.getJoueur().setPosition(7, 1);
+		jeu.evoluer(droite);
+		assertEquals(Labyrinthe.nbTreasureLeft, 2);
+		jeu.getJoueur().setPosition(2, 8);
 		jeu.evoluer(gauche);
-		Labyrinthe laby=jeu.getMap();
+		assertEquals(Labyrinthe.nbTreasureLeft, 1);
+		jeu.getJoueur().setPosition(7, 8);
+		jeu.evoluer(droite);
 		assertEquals(Labyrinthe.nbTreasureLeft, 0);
 	}
 	
-	public void ramasserAllTresor() {
-		
+	@Test
+	public void isntFini() {
+		jeu.getJoueur().setPosition(6, 7);
+		jeu.evoluer(droite);
+		assertFalse(jeu.etreFini());
 	}
 	
-	@Test
-	public void isFini() {
-		
-	}
+
 	
 	
 	
