@@ -31,6 +31,8 @@ public class Labyrinthe {
 				e.printStackTrace();
 			}
 		}
+		this.width = map.length;
+		this.height = map[0].length;
 	}
 
 	public Case getCase(int x, int y){
