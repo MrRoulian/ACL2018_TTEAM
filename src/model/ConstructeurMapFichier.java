@@ -28,7 +28,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		// ----- Map de Test ----- //
 		ArrayList<String> levelT = new ArrayList<String>();
 		levelT.add("map/levelTmap1.csv");
-		mapFichierMapParLevel.put(1, levelT);
+		mapFichierMapParLevel.put(-1, levelT);
 		// ----- Map de level 1 ----- //
 		ArrayList<String> level1 = new ArrayList<String>();
 		level1.add("map/level1map1.csv");
