@@ -20,8 +20,8 @@ public class Passage extends Special {
 				randX = (int)(Math.random()*entite.labyrinthe.getWidth()-1)+1;
 				randY = (int)(Math.random()*entite.labyrinthe.getHeight()-1)+1;
 				if (entite.labyrinthe.getCase(randX, randY).traversable){
-					x = randX;
-					y = randY;
+					entite.x = randX;
+					entite.y = randY;
 					entite.gauche();entite.droite(); //sert a trigger la case si je suis sur un piège
 					end = true;
 				}
