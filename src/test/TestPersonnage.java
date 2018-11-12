@@ -12,6 +12,23 @@ import moteurJeu.Commande;
 
 public class TestPersonnage {
 
+	
+	
+	/*
+	 * map TEST
+	 *  #,#,#,#,#,#,#,#,#,#
+	 *  #,T, ,M, , , , ,T,#			T:tresor
+	 *  #, , , , , , , , ,#			#:mur
+	 *  #, , , , , ,#, , ,#			 :sol
+	 *  #, , , , , , , , ,#			M:magique
+	 *  #, , ,#, , , , , ,#			O:ours
+	 *  #, , , , , , , , ,#			P:passage
+	 *  #, , ,P, , , ,#, ,#
+	 *  #,T, , , ,O, , ,T,#
+	 *  #,#,#,#,#,#,#,#,#,#
+	 *  
+	 */
+	
 	private PacmanGame jeu;
 	private PacmanGame jeuCrosCheck;
 	private Commande gauche;
