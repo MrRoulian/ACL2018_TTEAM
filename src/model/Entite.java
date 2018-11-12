@@ -8,6 +8,7 @@ public abstract class Entite {
 
 	protected int x, y;
 	protected boolean avoidSolidCase, triggerCase;
+	protected int vie;
 
 	protected Labyrinthe labyrinthe;
 
@@ -37,7 +38,7 @@ public abstract class Entite {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
 	}
-	
+
 	public void gauche() {
 		if (!avoidSolidCase) {
 			if(labyrinthe.getCase(--x, y).isSolid()) {
@@ -50,7 +51,7 @@ public abstract class Entite {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
 	}
-	
+
 	public void haut() {
 		if (!avoidSolidCase) {
 			if(labyrinthe.getCase(x, --y).isSolid()) {
@@ -63,7 +64,7 @@ public abstract class Entite {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
 	}
-	
+
 	public void bas() {
 		if (!avoidSolidCase) {
 			if(labyrinthe.getCase(x, ++y).isSolid()) {
@@ -75,6 +76,14 @@ public abstract class Entite {
 		if (triggerCase) {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
+	}
+
+	public void takeDamage(int damage){
+		vie -= damage;
+	}
+	
+	public boolean isAlive(){
+		return vie <= 0;
 	}
 
 }
