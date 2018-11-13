@@ -59,7 +59,7 @@ public class PacmanGame implements Game {
 			}
 			helpReader.close();
 		} catch (IOException e) {
-			System.out.println("Help not available");
+			//System.out.println("Help not available");
 		}
 		
 		// Initialisation de la map

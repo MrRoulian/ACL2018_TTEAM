@@ -1,0 +1,18 @@
+Sprint 2 :
+
+Alexis A:
+Le labyrinthe est généré à partir d’un fichier.
+
+Alexis B:
+Le labyrinthe est généré en fonction du niveau sélectionné.
+• trésor : si le héros arrive sur la case il a gagné le jeu
+
+Julien B:
+• pièges : quand un personnage arrive sur la case il subit des dégât
+• magiques : si un personnage arrive sur la case un effet est déclenché (bumper)
+• passages : un personnage qui arrive sur la case est téléporté à un autre endroit
+
+Gauthier B:
+Test ouverture du fichier 
+Toujours les contour en solid
+Tests en général
