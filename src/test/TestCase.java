@@ -2,18 +2,40 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.awt.Point;
+
+import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
 import model.Case;
+import model.Entite;
 import model.Joueur;
 import model.Labyrinthe;
+import model.Magique;
 import model.PacmanGame;
+import model.Special;
 import model.Tresor;
 import moteurJeu.Commande;
 
 public class TestCase {
 
+	
+	/*
+	 * map TEST
+	 *  #,#,#,#,#,#,#,#,#,#
+	 *  #,T, ,P, , , , ,T,#			T:tresor
+	 *  #, , , , , , , , ,#			#:mur
+	 *  #, , , , , ,#, , ,#			 :sol
+	 *  #, , , , , , , , ,#			M:magique
+	 *  #, , ,#, , , , , ,#			O:ours
+	 *  #, , , , , , , , ,#			P:passage
+	 *  #, , ,M, , , ,#, ,#
+	 *  #,T, , , ,O, , ,T,#
+	 *  #,#,#,#,#,#,#,#,#,#
+	 *  
+	 */
+	
 	private PacmanGame jeu;
 	private PacmanGame jeuCrosCheck;
 	private Commande gauche;
@@ -24,8 +46,7 @@ public class TestCase {
 	@Before
 	public void initialise() throws CloneNotSupportedException {
 		jeu=new PacmanGame("helpFilePacmanCase.txt",true);
-		System.out.println();
-		//jeuCrosCheck=new PacmanGame("helpFilePacman.txt",true);
+		jeuCrosCheck=new PacmanGame("helpFilePacman.txt",true);
 		gauche=new Commande();
 		gauche.gauche=true;
 		droite=new Commande();
@@ -36,31 +57,76 @@ public class TestCase {
 		bas.bas=true;
 	}
 	
-
+	@Test
 	public void marcheSurPiege() {
-		
-	}
-	//piege activable une fois
-	
-
-	public void marcheSurEffet() {
-		
-	}
-	
-
-	public void prendreTeleporte() {
+		jeu.getJoueur().setPosition(4,8);
+		assertEquals(100, jeu.getJoueur().getVie());
+		jeu.evoluer(droite);
+		assertEquals(90, jeu.getJoueur().getVie());
 		
 	}
 	
+	@Test
+	public void reMarcheSurPiege() {
+		jeu.getJoueur().setPosition(4,8);
+		assertEquals(100, jeu.getJoueur().getVie());
+		jeu.evoluer(droite);
+		assertEquals(90, jeu.getJoueur().getVie());
+		jeu.evoluer(droite);
+		jeu.evoluer(gauche);
+		assertEquals(90, jeu.getJoueur().getVie());
+	}
+	
 
+	@Test
+	//test sur les aleatoire donc on test juste que ca donne pas le meme resultat
+	public void prendreTeleporte_CrossCheck() {
+		jeu.getJoueur().setPosition(2, 1);
+		jeu.evoluer(droite);
+		jeuCrosCheck.getJoueur().setPosition(2, 1);
+		jeuCrosCheck.evoluer(droite);
+		assertNotEquals(new Point(jeu.getJoueur().getX(),jeu.getJoueur().getY())
+				, new Point(jeuCrosCheck.getJoueur().getX(),jeuCrosCheck.getJoueur().getY()));
+	}
+	
+	@Test
 	public void prendreEtReprendreTeleporte() {
+		jeu.getJoueur().setPosition(2, 1);
+		jeu.evoluer(droite);
+		assertNotEquals(new Point(3,1)
+				, new Point(jeu.getJoueur().getX(),jeu.getJoueur().getY()));
+		jeu.getJoueur().setPosition(2, 1);
+		jeu.evoluer(droite);
+		assertEquals(new Point(3,1)
+		, new Point(jeu.getJoueur().getX(),jeu.getJoueur().getY()));
 		
+		
+	}	
+	@Test
+	public void prendreBump_CrossCheck() {
+		jeu.getJoueur().setPosition(2, 7);
+		jeu.evoluer(droite);
+		jeuCrosCheck.getJoueur().setPosition(2, 7);
+		jeuCrosCheck.evoluer(droite);
+		assertNotEquals(new Point(3,7)
+				, new Point(jeu.getJoueur().getX(),jeu.getJoueur().getY()));
+		assertNotEquals(new Point(3,7)
+				, new Point(jeuCrosCheck.getJoueur().getX(),jeuCrosCheck.getJoueur().getY()));
 	}
 	
-	public void prendreTeleporte_crossC() {
+	@Test
+	public void reprendreBump() {
+		jeu.getJoueur().setPosition(2, 7);
+		jeu.evoluer(droite);
+		assertNotEquals(new Point(3,7)
+				, new Point(jeu.getJoueur().getX(),jeu.getJoueur().getY()));
+		jeu.getJoueur().setPosition(2, 7);
+		jeu.evoluer(droite);
+		assertNotEquals(new Point(3,7)
+		, new Point(jeu.getJoueur().getX(),jeu.getJoueur().getY()));
 		
-	}
-	
+		
+	}	
 	
 	@Test
 	public void nextCaseIsntTresor() {

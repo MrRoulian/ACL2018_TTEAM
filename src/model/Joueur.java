@@ -20,7 +20,7 @@ public class Joueur extends Entite{
 	@Override
 	protected void dessiner(Graphics2D g) {
 		g.setColor(Color.BLUE);
-		g.fillOval(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
 	}
 
 
@@ -43,5 +43,9 @@ public class Joueur extends Entite{
 	public void setPosition(int x1,int y1) {
 		this.x=x1;
 		this.y=y1;
+	}
+	
+	public int getVie() {
+		return vie;
 	}
 }
