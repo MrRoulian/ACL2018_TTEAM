@@ -8,10 +8,9 @@ import org.junit.Test;
 import model.Case;
 import model.Labyrinthe;
 import model.PacmanGame;
-import model.Tresor;
 import moteurJeu.Commande;
 
-public class TestOuvertureFichier {
+public class OuvertureFichierTest {
 
 
 	

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<project name="ACL-2018_TTEAM" default="main" basedir=".">
+
+	<echo message="pulling in property files"/>
+	<property file="axis_bujava.properties"/>
+	
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="class.dir" value="${build.dir}/classes" />
+	<property name="jar.dir" value="${build.dir}/classes" />
+	<property name="doc.dir" value="doc" />
+	<property name="test.dir" value="test" />
+	<property name="test.report.dir" value="${build.dir}/testrep" />
+	
+	
+	<property name="main-class" value="start.Main" />
+	
+	<echo message="calling the web services generation ant task: axis_bujava"/>
+ 	<target name="compile" >
+  		 <mkdir dir="${class.dir}"/>
+ 		 <javac srcdir="${src.dir}" destdir="${class.dir}"/>
+ 		 <javac srcdir="${test.dir}" destdir="${class.dir}"/>
+  	</target>
+	
+	<target name="junit" depends="compile">
+			<mkdir dir="${test.report.dir}"/>
+			<junit printsummary="yes" fork="yes" haltonfailure="off">
+				<classpath>
+					<pathelement location="${class.dir}"/>
+				</classpath>
+				<formatter type="plain"/>
+				
+				<test name="test.CaseTest"  todir="${test.report.dir}"/>
+				<test name="test.OuvertureFichierTest"  todir="${test.report.dir}"/>
+				<test name="test.PersonnageTest"  todir="${test.report.dir}"/>
+				
+				<batchtest fork="yes" todir="${test.report.dir}">
+					<fileset dir="${class.dir}">
+						<include name="test/*Test.class"/>
+					</fileset>
+				</batchtest>
+			</junit>
+		</target>
+	
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}"/>
+		<jar destfile="${jar.dir}/$(ant.project.name}.jar" basedir="${class.dir}">
+		</jar>
+	</target>
+	
+	<target name="run" depends="jar">
+		<java jar="${jar.dir}/${ant.project.name}.jat" fork="true"/>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>	
+	
+	<target name="clean-jar">
+		<delete file="${jar.dir}/${ant.project.name}.jar" />
+	</target>
+	
+	<target name="clean-compile">
+		<delete>
+			<fileset dir="${class.dir}" includes="**/*.class"></fileset>
+		</delete>
+	</target>
+	
+	<target name="clean-build" depends="clean,jar"/>
+	
+	<target name="main" depends="clean,run" />
+	
+  
+</project>

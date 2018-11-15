@@ -4,21 +4,17 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 
-import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
 import model.Case;
-import model.Entite;
 import model.Joueur;
 import model.Labyrinthe;
-import model.Magique;
 import model.PacmanGame;
-import model.Special;
 import model.Tresor;
 import moteurJeu.Commande;
 
-public class TestCase {
+public class CaseTest {
 
 	
 	/*

@@ -10,7 +10,7 @@ import model.Joueur;
 import model.PacmanGame;
 import moteurJeu.Commande;
 
-public class TestPersonnage {
+public class PersonnageTest {
 
 	
 	
