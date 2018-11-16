@@ -14,6 +14,11 @@ public abstract class Case {
 	 */
 	protected boolean traversable;
 	
+	/*
+	 * entier definissant le sprite encour
+	 */
+	protected int idSprite;
+	
 	/**
 	 * Constructeur initialisant la position de la case
 	 * @param x Abscisse de la case 

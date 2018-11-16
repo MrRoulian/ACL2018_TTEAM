@@ -2,6 +2,11 @@ package model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Sol extends Case {
 
@@ -17,8 +22,7 @@ public class Sol extends Case {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		g.setColor(Color.WHITE);
-		g.fillRect(x * PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		g.drawImage(SpriteLoader.getSol(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
 	}
 
 }
