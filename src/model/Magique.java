@@ -5,6 +5,9 @@ import java.awt.Graphics2D;
 
 public class Magique extends Special {
 
+	/**
+	 * 
+	 */
 	private int orientation;
 	public Magique(int x, int y) {
 		super(x, y);
@@ -37,7 +40,7 @@ public class Magique extends Special {
 	@Override
 	public void dessiner(Graphics2D g) {
 		g.setColor(Color.CYAN);
-		g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		g.fillRect(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
 	}
 
 }
