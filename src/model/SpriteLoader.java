@@ -17,6 +17,10 @@ public class SpriteLoader {
 	private volatile static Image bump=null;
 	private volatile static Image teleport=null;
 	private volatile static Image teleport2=null;
+	private volatile static Image squelette=null;
+	private volatile static Image squelettedead=null;
+	private volatile static Image fantome=null;
+	private volatile static Image fantomedead=null;
 	
 	public static Image getSol() {
 		if(sol==null) {
@@ -113,5 +117,53 @@ public class SpriteLoader {
 		}
 		return teleport2;
 	}
+	public static Image getSquelette() {
+		if(squelette==null) {
+			try {
+				squelette= ImageIO.read(new File("squelette.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return squelette;
+	}
+	
+	public static Image getSquelettedead() {
+		if(squelettedead==null) {
+			try {
+				squelettedead= ImageIO.read(new File("squelette2.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return squelettedead;
+	}
+	
+	public static Image getFantome() {
+		if(fantome==null) {
+			try {
+				fantome= ImageIO.read(new File("fantome.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return fantome;
+	}
+	
+	public static Image getFantomedead() {
+		if(fantomedead==null) {
+			try {
+				fantomedead= ImageIO.read(new File("fantomedead.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return fantomedead;
+	}
+	
 	
 }

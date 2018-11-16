@@ -12,8 +12,13 @@ public class Fantome extends Monstre {
 
 	@Override
 	protected void dessiner(Graphics2D g) {
-		g.setColor(new Color(165, 219, 223));
-		g.fillOval(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
+		//g.drawImage(SpriteLoader.getSol(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		if(!this.isdead()) {
+			g.drawImage(SpriteLoader.getFantome(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		}else {
+			g.drawImage(SpriteLoader.getFantomedead(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+			
+		}	
 	}
 
 }

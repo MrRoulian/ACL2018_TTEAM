@@ -134,7 +134,7 @@ public abstract class Entite {
 		vie -= damage;
 	}
 	
-	public boolean isAlive(){
+	public boolean isdead(){
 		return vie <= 0;
 	}
 

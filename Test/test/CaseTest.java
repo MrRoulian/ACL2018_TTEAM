@@ -1,6 +1,9 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Point;
 
@@ -10,7 +13,7 @@ import org.junit.Test;
 import model.Case;
 import model.Joueur;
 import model.Labyrinthe;
-import model.PacmanGame;
+import model.LabyrintheGame;
 import model.Tresor;
 import moteurJeu.Commande;
 
@@ -32,8 +35,8 @@ public class CaseTest {
 	 *  
 	 */
 	
-	private PacmanGame jeu;
-	private PacmanGame jeuCrosCheck;
+	private LabyrintheGame jeu;
+	private LabyrintheGame jeuCrosCheck;
 	private Commande gauche;
 	private Commande droite;
 	private Commande haut;
@@ -41,8 +44,8 @@ public class CaseTest {
 	
 	@Before
 	public void initialise() throws CloneNotSupportedException {
-		jeu=new PacmanGame("helpFilePacmanCase.txt",true);
-		jeuCrosCheck=new PacmanGame("helpFilePacman.txt",true);
+		jeu=new LabyrintheGame("helpFilePacmanCase.txt",true);
+		jeuCrosCheck=new LabyrintheGame("helpFilePacman.txt",true);
 		gauche=new Commande();
 		gauche.gauche=true;
 		droite=new Commande();

@@ -11,8 +11,13 @@ public class Squelette extends Monstre {
 	
 	@Override
 	protected void dessiner(Graphics2D g) {
-		g.setColor(new Color(243, 219, 160));
-		g.fillOval(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);		
+		g.drawImage(SpriteLoader.getSol(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		if(!this.isdead()) {
+			g.drawImage(SpriteLoader.getSquelette(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		}else {
+			g.drawImage(SpriteLoader.getSquelettedead(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+			
+		}
 	}
 
 }

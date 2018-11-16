@@ -1,14 +1,15 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-
-import org.junit.*;
-
+import org.junit.Before;
+import org.junit.Test;
 
 import model.Case;
 import model.Labyrinthe;
-import model.PacmanGame;
+import model.LabyrintheGame;
 import moteurJeu.Commande;
 
 public class OuvertureFichierTest {
@@ -30,8 +31,8 @@ public class OuvertureFichierTest {
 	 *  
 	 */
 	
-	private PacmanGame jeu;
-	private PacmanGame jeuCrosCheck;
+	private LabyrintheGame jeu;
+	private LabyrintheGame jeuCrosCheck;
 	private Commande gauche;
 	private Commande droite;
 	private Commande haut;
@@ -39,8 +40,8 @@ public class OuvertureFichierTest {
 	
 	@Before
 	public void initialise() throws CloneNotSupportedException {
-		jeu=new PacmanGame("helpFilePacmanFile.txt",true);
-		jeuCrosCheck=new PacmanGame("helpFilePacmanFile.txt",true);
+		jeu=new LabyrintheGame("helpFilePacmanFile.txt",true);
+		jeuCrosCheck=new LabyrintheGame("helpFilePacmanFile.txt",true);
 		gauche=new Commande();
 		gauche.gauche=true;
 		droite=new Commande();
