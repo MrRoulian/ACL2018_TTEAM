@@ -22,17 +22,11 @@ public class PiegeAOurs extends Special {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		if (triggered) {
-			g.setColor(Color.GRAY);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-		} else {
-			g.setColor(Color.RED);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-			g.setColor(Color.GRAY);
-			g.fillRect(	x * PacmanPainter.WIDTH + (int)(PacmanPainter.WIDTH*0.1),
-						y * PacmanPainter.HEIGHT + (int)(PacmanPainter.HEIGHT*0.1),
-						(int)(PacmanPainter.WIDTH*0.8),
-						(int)(PacmanPainter.HEIGHT*0.8));
+		g.drawImage(SpriteLoader.getSol(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
+			
+		if (!triggered) {
+			g.drawImage(SpriteLoader.getPiegeOurs(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
+
 		}
 	}
 

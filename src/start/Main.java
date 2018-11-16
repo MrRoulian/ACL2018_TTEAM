@@ -18,7 +18,7 @@ public class Main {
 		int width = (int)dimension.getWidth();
 		
 		// creation du jeu particulier et de son afficheur
-		PacmanGame game = new PacmanGame("helpFilePacman.txt");
+		PacmanGame game = new PacmanGame("helpFilePacman.txt",true);
 		PacmanPainter painter = new PacmanPainter(game);
 
 		// classe qui lance le moteur de jeu generique

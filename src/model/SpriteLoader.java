@@ -13,6 +13,10 @@ public class SpriteLoader {
 	private volatile static Image wall =null;
 	private volatile static ArrayList<Image> piece =null;
 	private volatile static Image knight =null;
+	private volatile static Image piegeOurs =null;
+	private volatile static Image bump=null;
+	private volatile static Image teleport=null;
+	private volatile static Image teleport2=null;
 	
 	public static Image getSol() {
 		if(sol==null) {
@@ -63,4 +67,51 @@ public class SpriteLoader {
 		}
 		return knight;
 	}
+	
+	public static Image getPiegeOurs() {
+		if(piegeOurs==null) {
+			try {
+				piegeOurs= ImageIO.read(new File("piegeOurs.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return piegeOurs;
+	}
+	public static Image getBump() {
+		if(bump==null) {
+			try {
+				bump= ImageIO.read(new File("bump.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return bump;
+	}
+	public static Image getTeleport() {
+		if(teleport==null) {
+			try {
+				teleport= ImageIO.read(new File("teleport.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return teleport;
+	}
+	
+	public static Image getTeleport2() {
+		if(teleport2==null) {
+			try {
+				teleport2= ImageIO.read(new File("teleport2.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return teleport2;
+	}
+	
 }

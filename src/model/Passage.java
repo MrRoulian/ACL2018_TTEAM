@@ -31,12 +31,11 @@ public class Passage extends Special {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		if (triggered) {
-			g.setColor(Color.WHITE);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-		} else {
-			g.setColor(Color.GREEN);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		g.drawImage(SpriteLoader.getSol(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
+		if(!triggered) {
+			g.drawImage(SpriteLoader.getTeleport2(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
+		}else {	
+			g.drawImage(SpriteLoader.getTeleport(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
 		}
 	}
 
