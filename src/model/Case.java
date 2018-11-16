@@ -4,6 +4,8 @@ import java.awt.Graphics2D;
 
 public abstract class Case {
 	
+	protected int idSprite;
+	
 	protected int x,y;
 	
 	protected boolean traversable;
