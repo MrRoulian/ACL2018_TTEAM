@@ -4,12 +4,13 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
 public class SpriteLoader {
-	
-	private volatile static Image sol =null;
+
+	private volatile static ArrayList<Image> sol =null;
 	private volatile static Image wall =null;
 	private volatile static ArrayList<Image> piece =null;
 	private volatile static Image knight =null;
@@ -22,16 +23,32 @@ public class SpriteLoader {
 	private volatile static Image fantome=null;
 	private volatile static Image fantomedead=null;
 	
-	public static Image getSol() {
+	public static Image getSol(int id) {
 		if(sol==null) {
 			try {
-				sol= ImageIO.read(new File("sol.jpg"));
+				sol=new ArrayList<Image>();
+				sol.add(ImageIO.read(new File("sol.jpg")));
+				sol.add(ImageIO.read(new File("solskull.png")));
+				sol.add(ImageIO.read(new File("soltoile.png")));
+				sol.add(ImageIO.read(new File("solfire.png")));
+				sol.add(ImageIO.read(new File("solstone.png")));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return sol;
+		switch(id) {
+			case 1:
+				return sol.get(1);
+			case 2:
+				return sol.get(2);
+			case 3:
+				return sol.get(3);
+			case 4:
+				return sol.get(4);
+			default:
+				return sol.get(0);	
+		}
 	}
 	
 	public static Image getWall() {

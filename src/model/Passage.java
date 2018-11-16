@@ -31,7 +31,7 @@ public class Passage extends Special {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		g.drawImage(SpriteLoader.getSol(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		g.drawImage(SpriteLoader.getSol(0),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
 		if(!triggered) {
 			g.drawImage(SpriteLoader.getTeleport2(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
 		}else {	
