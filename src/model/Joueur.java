@@ -20,9 +20,9 @@ public class Joueur extends Entite{
 
 	@Override
 	protected void dessiner(Graphics2D g) {
-		g.setColor(Color.BLUE);
-		g.fillOval(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		g.drawImage(SpriteLoader.getknight(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
 	}
+
 
 
 	@Override

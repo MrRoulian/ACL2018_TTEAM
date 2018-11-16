@@ -8,6 +8,7 @@ public class Tresor extends Special {
 	public Tresor(int x, int y) {
 		super(x, y);
 		traversable = true;
+		idSprite=0;
 	}
 
 	@Override
@@ -20,13 +21,15 @@ public class Tresor extends Special {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		if (triggered) {
-			g.setColor(Color.WHITE);
-			g.fillRect(x * PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-		} else {
-			g.setColor(Color.YELLOW);
-			g.fillRect(x * PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
-		}
+		g.drawImage(SpriteLoader.getSol(),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
+		if (!triggered) {
+			g.drawImage(SpriteLoader.getPieces(idSprite),x* PacmanPainter.WIDTH, y* PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT,null);
+			if(idSprite==5) {
+				idSprite=0;
+			}else {
+				idSprite++;
+			}
+		} 
 	}
 
 }
