@@ -60,7 +60,9 @@ public abstract class Entite {
 				this.x--;
 			}
 		} else {
-			++x;
+			if (x + 1 < labyrinthe.getWidth()) {
+				++x;				
+			}
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
@@ -78,7 +80,9 @@ public abstract class Entite {
 				this.x++;
 			}
 		} else {
-			--x;
+			if (x - 1 >= 0) {
+				--x;
+			}
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
@@ -96,7 +100,9 @@ public abstract class Entite {
 				this.y++;
 			}
 		} else {
-			--y;
+			if (y - 1 >= 0){
+				--y;				
+			}
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
@@ -114,7 +120,9 @@ public abstract class Entite {
 				this.y--;
 			}
 		} else {
-			++y;
+			if (y + 1 < labyrinthe.getHeight()){
+				++y;			
+			}
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {

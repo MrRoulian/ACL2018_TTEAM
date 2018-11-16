@@ -19,7 +19,9 @@ public class Joueur extends Entite{
 
 	@Override
 	protected void dessiner(Graphics2D g) {
-		g.drawImage(SpriteLoader.getknight(),x* PacmanPainter.WIDTH, y*PacmanPainter.HEIGHT-5, PacmanPainter.WIDTH, (int)(PacmanPainter.HEIGHT),null);
+
+		g.drawImage(SpriteLoader.getknight(),x* LabyrinthePainter.WIDTH, y*LabyrinthePainter.HEIGHT-5, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+
 	}
 
 

@@ -7,30 +7,52 @@ import java.io.FileReader;
 import javax.swing.JFileChooser;
 
 public class Labyrinthe {
-	
+	/**
+	 * Represente le nombre de tresor dans la map avant la fin 
+	 */
 	public static int nbTreasureLeft;
 
+	/**
+	 * Attributs representant la taille de la map 
+	 */
 	private int height, width;
+	/**
+	 * Matrice representant la map 
+	 */
 	private Case[][] map;
 
+	/**
+	 * Constructeur de base qui cree une map de niveau 1
+	 */
 	public Labyrinthe(){
 		construire(1);
 	}
-	public Labyrinthe(int a){
-		construire(a);
+	
+	/**
+	 * Contructeur qui cree une map de niveau donne
+	 * @param niveau Niveau donne pour creer la map 
+	 */
+	public Labyrinthe(int niveau){
+		construire(niveau);
 	}
 
+	/**
+	 * Methode qui construit la map de niveau donne
+	 * @param level Niveau donne pour construire la map 
+	 */
 	public void construire(int level){
+		// On tente d'uiliser le ConstructeurMapFichier sinon on prend le constructeur de base 
 		try {
 			map = ConstructeurMapFichier.getInstance().newMap(level);
 		}
-		catch(GenerationException ex) {
+		catch(GenerationException ex) { 
 			try {
 				map = ConstructeurMapBase.getInstance().newMap(level);
 			} catch (GenerationException e) {
 				e.printStackTrace();
 			}
 		}
+		// Mise a jour de la taille de la map
 		this.width = map.length;
 		this.height = map[0].length;
 	}
@@ -39,15 +61,18 @@ public class Labyrinthe {
 		return map[x][y];
 	}
 
+	/**
+	 * Methode qui permet de dessiner la map sur l'image a construire
+	 * @param g Graphics sur lequel on dessine l'image
+	 */
 	public void dessiner(Graphics2D g) {
-		// Dessine le labyrinthe
+		// Pour chaque case on la dessine 
 		for (Case[] cases : map) {
 			for (Case case1 : cases) {
 				case1.dessiner(g);
 			}
 		}
 	}
-
 
 	public void affiche(int x,int y) {
 		System.out.println("map ");

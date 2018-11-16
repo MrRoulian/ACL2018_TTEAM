@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import moteurJeu.Commande;
@@ -16,7 +17,7 @@ import moteurJeu.Game;
  *         versions suivantes.
  * 
  */
-public class PacmanGame implements Game {
+public class LabyrintheGame implements Game {
 	
 	/**
 	 * Map du jeu
@@ -45,12 +46,18 @@ public class PacmanGame implements Game {
 	private static int MAX_LEVEL = 3;
 	
 	/**
+	 * Liste de monstres
+	 */
+	protected ArrayList<Monstre> monstres;
+	
+	/**
 	 * constructeur avec fichier source pour le help
 	 * @throws CloneNotSupportedException 
 	 * 
 	 */
-	public PacmanGame(String source) throws CloneNotSupportedException {
+	public LabyrintheGame(String source) throws CloneNotSupportedException {
 		BufferedReader helpReader;
+		monstres = new ArrayList<>();
 		try {
 			helpReader = new BufferedReader(new FileReader(source));
 			String ligne;
@@ -68,6 +75,19 @@ public class PacmanGame implements Game {
 		// Initialisation du joueur 
 		joueur = new Joueur(map);
 		
+		//Initialisation des monstres
+		int randX=0,randY=0;
+		boolean end = false;
+		do {
+			randX = (int)(Math.random()*joueur.labyrinthe.getWidth()-1)+1;
+			randY = (int)(Math.random()*joueur.labyrinthe.getHeight()-1)+1;
+			if (joueur.labyrinthe.getCase(randX, randY).traversable){
+				monstres.add(new Squelette(new Aleatoire(), randX, randY, map));
+				monstres.add(new Fantome(new Aleatoire(), randX, randY, map));
+				end = true;
+			}
+		} while (!end);
+		
 		// Initialisation du level a 1
 		levelActuel = 1;
 	}
@@ -77,7 +97,7 @@ public class PacmanGame implements Game {
 	 * @throws CloneNotSupportedException 
 	 * 
 	 */
-	public PacmanGame(String source,boolean t) throws CloneNotSupportedException {
+	public LabyrintheGame(String source,boolean t) throws CloneNotSupportedException {
 		BufferedReader helpReader;
 		try {
 			helpReader = new BufferedReader(new FileReader(source));
@@ -114,6 +134,9 @@ public class PacmanGame implements Game {
 	@Override
 	public void evoluer(Commande commandeUser) {
 		joueur.update(commandeUser);
+		for (Monstre monstre : monstres) {
+			monstre.update(null);
+		}
 		if(!test) {
 			testerFin();
 		}
@@ -141,6 +164,11 @@ public class PacmanGame implements Game {
 		
 		// Dabord la map 
 		this.map.dessiner(g);
+		
+		//Dessine les monstres
+		for (Monstre monstre : monstres) {
+			monstre.dessiner(g);
+		}
 		
 		// EN FIN le joueur (il est dessiné au dessus de tout autre elements
 		this.joueur.dessiner(g);

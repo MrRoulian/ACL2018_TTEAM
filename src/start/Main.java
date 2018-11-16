@@ -1,11 +1,11 @@
 package start;
 
-import model.PacmanPainter;
+import model.LabyrinthePainter;
 import moteurJeu.MoteurGraphique;
 
 import java.awt.Dimension;
 
-import model.PacmanGame;
+import model.LabyrintheGame;
 
 /**
  * lancement du moteur avec le jeu
@@ -18,8 +18,9 @@ public class Main {
 		int width = (int)dimension.getWidth();
 		
 		// creation du jeu particulier et de son afficheur
-		PacmanGame game = new PacmanGame("helpFilePacman.txt",true);
-		PacmanPainter painter = new PacmanPainter(game);
+
+		LabyrintheGame game = new LabyrintheGame("helpFilePacman.txt");
+		LabyrinthePainter painter = new LabyrinthePainter(game);
 
 		// classe qui lance le moteur de jeu generique
 		MoteurGraphique moteur = new MoteurGraphique(game, painter);

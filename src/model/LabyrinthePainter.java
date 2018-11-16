@@ -11,7 +11,7 @@ import moteurJeu.DessinJeu;
  * afficheur graphique pour le game
  * 
  */
-public class PacmanPainter implements DessinJeu {
+public class LabyrinthePainter implements DessinJeu {
 
 	/**
 	 * la taille des cases
@@ -22,13 +22,13 @@ public class PacmanPainter implements DessinJeu {
 	/**
 	 * Le jeu a dessiner sur l'image
 	 */
-	private PacmanGame jeu;
+	private LabyrintheGame jeu;
 
 	/**
 	 * Constructeur recuperant le jeu a dessiner 
 	 * @param j
 	 */
-	public PacmanPainter(PacmanGame j) {
+	public LabyrinthePainter(LabyrintheGame j) {
 		this.jeu = j;
 	}
 
