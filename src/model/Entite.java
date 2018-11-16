@@ -32,7 +32,9 @@ public abstract class Entite {
 				this.x--;
 			}
 		} else {
-			++x;
+			if (x + 1 < labyrinthe.getWidth()) {
+				++x;				
+			}
 		}
 		if (triggerCase) {
 			labyrinthe.getCase(x, y).trigger(this);
@@ -45,7 +47,9 @@ public abstract class Entite {
 				this.x++;
 			}
 		} else {
-			--x;
+			if (x - 1 >= 0) {
+				--x;
+			}
 		}
 		if (triggerCase) {
 			labyrinthe.getCase(x, y).trigger(this);
@@ -58,7 +62,9 @@ public abstract class Entite {
 				this.y++;
 			}
 		} else {
-			--y;
+			if (y - 1 >= 0){
+				--y;				
+			}
 		}
 		if (triggerCase) {
 			labyrinthe.getCase(x, y).trigger(this);
@@ -71,7 +77,9 @@ public abstract class Entite {
 				this.y--;
 			}
 		} else {
-			++y;
+			if (y + 1 < labyrinthe.getHeight()){
+				++y;			
+			}
 		}
 		if (triggerCase) {
 			labyrinthe.getCase(x, y).trigger(this);
