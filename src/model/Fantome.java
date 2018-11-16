@@ -13,7 +13,7 @@ public class Fantome extends Monstre {
 	@Override
 	protected void dessiner(Graphics2D g) {
 		g.setColor(new Color(165, 219, 223));
-		g.fillOval(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+		g.fillOval(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
 	}
 
 }

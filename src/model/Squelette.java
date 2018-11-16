@@ -12,7 +12,7 @@ public class Squelette extends Monstre {
 	@Override
 	protected void dessiner(Graphics2D g) {
 		g.setColor(new Color(243, 219, 160));
-		g.fillOval(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);		
+		g.fillOval(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);		
 	}
 
 }
