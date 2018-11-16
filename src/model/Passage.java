@@ -33,10 +33,10 @@ public class Passage extends Special {
 	public void dessiner(Graphics2D g) {
 		if (triggered) {
 			g.setColor(Color.WHITE);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+			g.fillRect(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
 		} else {
 			g.setColor(Color.GREEN);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+			g.fillRect(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
 		}
 	}
 

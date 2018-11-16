@@ -24,15 +24,15 @@ public class PiegeAOurs extends Special {
 	public void dessiner(Graphics2D g) {
 		if (triggered) {
 			g.setColor(Color.GRAY);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+			g.fillRect(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
 		} else {
 			g.setColor(Color.RED);
-			g.fillRect(x * PacmanPainter.WIDTH, y * PacmanPainter.HEIGHT, PacmanPainter.WIDTH, PacmanPainter.HEIGHT);
+			g.fillRect(x * LabyrinthePainter.WIDTH, y * LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT);
 			g.setColor(Color.GRAY);
-			g.fillRect(	x * PacmanPainter.WIDTH + (int)(PacmanPainter.WIDTH*0.1),
-						y * PacmanPainter.HEIGHT + (int)(PacmanPainter.HEIGHT*0.1),
-						(int)(PacmanPainter.WIDTH*0.8),
-						(int)(PacmanPainter.HEIGHT*0.8));
+			g.fillRect(	x * LabyrinthePainter.WIDTH + (int)(LabyrinthePainter.WIDTH*0.1),
+						y * LabyrinthePainter.HEIGHT + (int)(LabyrinthePainter.HEIGHT*0.1),
+						(int)(LabyrinthePainter.WIDTH*0.8),
+						(int)(LabyrinthePainter.HEIGHT*0.8));
 		}
 	}
 

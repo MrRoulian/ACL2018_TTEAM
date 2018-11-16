@@ -17,7 +17,7 @@ import moteurJeu.Game;
  *         versions suivantes.
  * 
  */
-public class PacmanGame implements Game {
+public class LabyrintheGame implements Game {
 	
 	/**
 	 * Map du jeu
@@ -55,7 +55,7 @@ public class PacmanGame implements Game {
 	 * @throws CloneNotSupportedException 
 	 * 
 	 */
-	public PacmanGame(String source) throws CloneNotSupportedException {
+	public LabyrintheGame(String source) throws CloneNotSupportedException {
 		BufferedReader helpReader;
 		monstres = new ArrayList<>();
 		try {
@@ -97,7 +97,7 @@ public class PacmanGame implements Game {
 	 * @throws CloneNotSupportedException 
 	 * 
 	 */
-	public PacmanGame(String source,boolean t) throws CloneNotSupportedException {
+	public LabyrintheGame(String source,boolean t) throws CloneNotSupportedException {
 		BufferedReader helpReader;
 		try {
 			helpReader = new BufferedReader(new FileReader(source));
