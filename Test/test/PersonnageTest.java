@@ -2,16 +2,33 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.*;
+
 
 import model.Joueur;
 import model.PacmanGame;
 import moteurJeu.Commande;
 
-public class TestPersonnage {
+public class PersonnageTest {
 
+	
+	
+	/*
+	 * map TEST
+	 *  #,#,#,#,#,#,#,#,#,#
+	 *  #,T, ,M, , , , ,T,#			T:tresor
+	 *  #, , , , , , , , ,#			#:mur
+	 *  #, , , , , ,#, , ,#			 :sol
+	 *  #, , , , , , , , ,#			M:magique
+	 *  #, , ,#, , , , , ,#			O:ours
+	 *  #, , , , , , , , ,#			P:passage
+	 *  #, , ,P, , , ,#, ,#
+	 *  #,T, , , ,O, , ,T,#
+	 *  #,#,#,#,#,#,#,#,#,#
+	 *  
+	 */
+	
 	private PacmanGame jeu;
 	private PacmanGame jeuCrosCheck;
 	private Commande gauche;

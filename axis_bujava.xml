@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<project name="ACL2018_TTEAM" default="main" basedir=".">
+
+	<property name="src.dir" value="src" />
+	<property name="model.dir" value="${src.dir}/model" />
+	<property name="moteurJeu.dir" value="${src.dir}/moteurJeu" />
+	<property name="start.dir" value="${src.dir}/start" />	
+	<property name="map.dir" location="map"/>
+	<property name="build.dir" value ="build"/>
+	<property name="class.dir" value ="${build.dir}/classes"/>
+	<property name="jar.dir" value ="${build.dir}/jar"/>
+	<property name="maps.dir" value ="${jar.dir}/map"/>
+		
+	<property name="main-class" value="start.main"/>
+
+	   	
+  	<target name="compile">
+		<mkdir dir="${class.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${class.dir}"/>
+	</target>
+			
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}"/>
+			<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${class.dir}">
+		</jar>
+			<copy todir="${maps.dir}"> 
+					   <fileset dir="${map.dir}" />
+					</copy>
+					<echo message="Copie effectuée." />
+	</target>
+		
+		
+		
+	<target name="run" depends="jar">
+		<java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+		
+	<target name="clean-jar">
+		<delete dir="${jar.dir}/${ant.project.name}.jar"/>
+	</target>
+	
+
+	<target name="clean-compile">
+		<delete>
+		<fileset dir="${class.dir}" includes="**/*.class" />
+		</delete> 
+	</target>
+		
+	<target name="clean-build" depends="clean,jar" />
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: name                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="main" depends="clean,run"/>
+
+
+		
+			
+</project>

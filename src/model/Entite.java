@@ -20,6 +20,10 @@ public abstract class Entite {
 	 * Booleen indicant si l'entite active les cases lorsqu'elle marche dessus
 	 */
 	protected boolean triggerCase;
+	/**
+	 * Entier correspondant a la vie de l'entite
+	 */
+	protected int vie;
 
 	/**
 	 * Map dans laquel notre entite evolue
@@ -63,7 +67,7 @@ public abstract class Entite {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
 	}
-	
+
 	/**
 	 * Methode qui deplace l'entite sur la gauche
 	 */
@@ -81,7 +85,7 @@ public abstract class Entite {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
 	}
-	
+
 	/**
 	 * Methode qui deplace l'entite vers le haut
 	 */
@@ -99,7 +103,7 @@ public abstract class Entite {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
 	}
-	
+
 	/**
 	 * Methode qui deplace l'entite vers le bas
 	 */
@@ -116,6 +120,14 @@ public abstract class Entite {
 		if (triggerCase) {
 			labyrinthe.getCase(x, y).trigger(this);
 		}
+	}
+
+	public void takeDamage(int damage){
+		vie -= damage;
+	}
+	
+	public boolean isAlive(){
+		return vie <= 0;
 	}
 
 }

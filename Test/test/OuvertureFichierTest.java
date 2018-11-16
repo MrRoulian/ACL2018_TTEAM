@@ -2,34 +2,32 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.*;
+
 
 import model.Case;
 import model.Labyrinthe;
 import model.PacmanGame;
-import model.Tresor;
 import moteurJeu.Commande;
 
-public class TestOuvertureFichier {
+public class OuvertureFichierTest {
 
 
+	
 	/*
 	 * map TEST
 	 *  #,#,#,#,#,#,#,#,#,#
-	 *  #,T, , , , , , ,T,#
-	 *  #, , , , , , , , ,#
-	 *  #, , , , , ,#, , ,#
-	 *  #, , , , , , , , ,#
-	 *  #, , ,#, , , , , ,#
-	 *  #, , , , , , , , ,#
-	 *  #, , , , , , ,#, ,#
-	 *  #,T, , , , , , ,T,#
+	 *  #,T, ,M, , , , ,T,#			T:tresor
+	 *  #, , , , , , , , ,#			#:mur
+	 *  #, , , , , ,#, , ,#			 :sol
+	 *  #, , , , , , , , ,#			M:magique
+	 *  #, , ,#, , , , , ,#			O:ours
+	 *  #, , , , , , , , ,#			P:passage
+	 *  #, , ,P, , , ,#, ,#
+	 *  #,T, , , ,O, , ,T,#
 	 *  #,#,#,#,#,#,#,#,#,#
 	 *  
-	 *  T;tresor
-	 *  #:mur
-	 *   :sol
 	 */
 	
 	private PacmanGame jeu;
@@ -73,6 +71,24 @@ public class TestOuvertureFichier {
 		
 	}
 	
+	@Test
+	public void ajoutEnceinte() {
+		Labyrinthe map=jeu.getMap();
+		for(int i=0;i<map.getHeight();i++) {
+			Case c =map.getCase(0,i);
+			assertTrue(c.isSolid());
+			c =map.getCase(map.getHeight()-1,i);
+			assertTrue(c.isSolid());
+		}
+		for(int j=0;j<map.getWidth();j++) {
+			Case c =map.getCase(j,0);
+			assertTrue(c.isSolid());
+			c =map.getCase(j,map.getWidth()-1);
+			assertTrue(c.isSolid());
+		}
+		
+	}
+	
 	
 	@Test
 	public void ajoutSol() {
@@ -104,7 +120,9 @@ public class TestOuvertureFichier {
 	public void isTresor() {
 		Labyrinthe map=jeu.getMap();
 		Case c =map.getCase(1, 1);
-		assertTrue(c instanceof Tresor);
+		assertEquals(4,Labyrinthe.nbTreasureLeft);
+		c.trigger(jeu.getJoueur());
+		assertEquals(3,Labyrinthe.nbTreasureLeft);
 		
 	}
 	
@@ -112,9 +130,28 @@ public class TestOuvertureFichier {
 	public void isntTresor() {
 		Labyrinthe map=jeu.getMap();
 		Case c =map.getCase(7, 7);
-		assertFalse(c instanceof Tresor);
-		c =map.getCase(5, 5);
-		assertFalse(c instanceof Tresor);
+		assertEquals(4,Labyrinthe.nbTreasureLeft);
+		c.trigger(jeu.getJoueur());
+		assertEquals(4,Labyrinthe.nbTreasureLeft);
+		
+	}
+	
+	@Test
+	public void isPiege() {
+		Labyrinthe map=jeu.getMap();
+		Case c =map.getCase(5, 8);
+		assertEquals(100,jeu.getJoueur().getVie());
+		c.trigger(jeu.getJoueur());
+		assertEquals(90,jeu.getJoueur().getVie());
+		
+	}
+	@Test
+	public void isntPiege() {
+		Labyrinthe map=jeu.getMap();
+		Case c =map.getCase(5, 7);
+		assertEquals(100,jeu.getJoueur().getVie());
+		c.trigger(jeu.getJoueur());
+		assertEquals(100,jeu.getJoueur().getVie());
 		
 	}
 

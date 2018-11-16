@@ -14,6 +14,7 @@ public class Joueur extends Entite{
 		this.y = 5;
 		this.labyrinthe=lab;
 		this.triggerCase = true;
+		this.vie=100;
 	}
 
 	@Override
@@ -42,5 +43,9 @@ public class Joueur extends Entite{
 	public void setPosition(int x1,int y1) {
 		this.x=x1;
 		this.y=y1;
+	}
+	
+	public int getVie() {
+		return vie;
 	}
 }
