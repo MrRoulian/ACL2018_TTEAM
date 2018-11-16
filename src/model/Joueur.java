@@ -15,7 +15,6 @@ public class Joueur extends Entite{
 		this.labyrinthe=lab;
 		this.triggerCase = true;
 		this.vie=100;
-		this.avoidSolidCase=true;
 	}
 
 	@Override
