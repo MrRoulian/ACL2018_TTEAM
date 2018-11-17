@@ -10,9 +10,10 @@ import javax.imageio.ImageIO;
 
 public class Mur extends Case {
 
-	public Mur(int x, int y) {
+	public Mur(int x, int y,int sprite) {
 		super(x, y);
 		this.traversable = false;
+		idSprite=sprite;
 	}
 
 	@Override
@@ -22,7 +23,10 @@ public class Mur extends Case {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		g.drawImage(SpriteLoader.getWall(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		if(idSprite==8) {
+			g.drawImage(SpriteLoader.getSol(0),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		}
+		g.drawImage(SpriteLoader.getWall(idSprite),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
 	}
 
 }

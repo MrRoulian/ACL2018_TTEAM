@@ -9,9 +9,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class SpriteLoader {
-
 	private volatile static ArrayList<Image> sol =null;
-	private volatile static Image wall =null;
+	private volatile static ArrayList<Image> wall =null;
 	private volatile static ArrayList<Image> piece =null;
 	private volatile static Image knight =null;
 	private volatile static Image piegeOurs =null;
@@ -22,6 +21,7 @@ public class SpriteLoader {
 	private volatile static Image squelettedead=null;
 	private volatile static Image fantome=null;
 	private volatile static Image fantomedead=null;
+	
 	
 	public static Image getSol(int id) {
 		if(sol==null) {
@@ -51,16 +51,19 @@ public class SpriteLoader {
 		}
 	}
 	
-	public static Image getWall() {
+	public static Image getWall(int id) {
 		if(wall==null) {
 			try {
-				wall= ImageIO.read(new File("wall.jpg"));
+				wall=new ArrayList<Image>();
+				for(int i=1;i<16;i++) {
+					wall.add( ImageIO.read(new File("wall"+i+".png")));
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return wall;
+		return wall.get(id);
 	}
 	public static Image getPieces(int id) {
 		if(piece==null) {
