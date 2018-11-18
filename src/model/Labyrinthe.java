@@ -1,12 +1,6 @@
 package model;
 
 import java.awt.Graphics2D;
-import java.io.BufferedReader;
-import java.io.FileReader;
-
-import javax.swing.JFileChooser;
-
-import com.sun.javafx.collections.MappingChange.Map;
 
 public class Labyrinthe {
 	

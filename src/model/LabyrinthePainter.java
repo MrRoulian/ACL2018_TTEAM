@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import moteurJeu.DessinJeu;
-import sun.java2d.loops.FillRect;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas

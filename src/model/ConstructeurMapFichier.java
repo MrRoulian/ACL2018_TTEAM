@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.JFileChooser;
-
 public class ConstructeurMapFichier implements ConstructeurMap{
 	
 	//Codes representant les type de case dans le fichier csv de la map a recuperer
@@ -33,62 +31,6 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 * Code de la case de type Tresor
 	 */
 	private static final int CODE_CASE_TRESOR = 2;
-	
-	
-	private static final int CODE_CASE_MUR_VERTICALR = 16;
-	/**
-	 * Code de la case de type vertical left
-	 */
-	private static final int CODE_CASE_MUR_VERTICALL = 3;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_MUR_HORIZON = 4;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_MUR_ANGLED = 5;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_MUR_ANGLEG = 6;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_MUR_ANGLEHD = 7;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_MUR_ANGLEHG = 8;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_MUR_PILIER = 9;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_2MUR_VERTICAL = 10;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_2MUR_HORIZONTAL = 11;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_2MUR_VERTICAL_ENDTOP = 12;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_2MUR_VERTICAL_ENDBOTTOM = 13;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_2MUR_HORIZONTAL_ENDR = 14;
-	/**
-	 * Code de la case de type horizon
-	 */
-	private static final int CODE_CASE_2MUR_HORIZONTAL_ENDL = 15;
-
 	/**
 	 * Code de la case de type Passage
 	 */
@@ -101,22 +43,6 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 * Code de la case de type Magique
 	 */
 	private static final int CODE_CASE_MAGIQUE = 19;
-	/**
-	 * Code de la case de type Tresor
-	 */
-	private static final int CODE_CASE_SKULL = 20;
-	/**
-	 * Code de la case de type Passage
-	 */
-	private static final int CODE_CASE_TOILE = 21;
-	/**
-	 * Code de la case de type PiegeAOurs
-	 */
-	private static final int CODE_CASE_FIRE = 22;
-	/**
-	 * Code de la case de type Magique
-	 */
-	private static final int CODE_CASE_STONR = 23;
 	
 	/**
 	 * Map contenant pour chaque niveaux une liste de chaine correspondant a une map 
