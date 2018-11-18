@@ -11,6 +11,7 @@ public class Sol extends Case {
 	public Sol(int x, int y) {
 		super(x, y);
 		this.traversable = true;
+		idSprite=0;
 	}
 
 	@Override
@@ -20,7 +21,7 @@ public class Sol extends Case {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		g.drawImage(SpriteLoader.getSol(idSpriteBack),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		g.drawImage(SpriteLoader.getSol(idSprite),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
 		
 	}
 }

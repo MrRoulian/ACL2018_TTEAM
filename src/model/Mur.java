@@ -24,7 +24,7 @@ public class Mur extends Case {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-
-		}
+		g.drawImage(SpriteLoader.getWall(idSpriteBack),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);	
+	}
 
 }

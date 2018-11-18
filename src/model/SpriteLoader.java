@@ -27,9 +27,10 @@ public class SpriteLoader {
 		if(sol==null) {
 			try {
 				sol=new ArrayList<Image>();
-				for(int i=0;i<47;i++) {
-					sol.add( ImageIO.read(new File("sol"+i+".png")));
-				}
+				sol.add( ImageIO.read(new File("sol.jpg")));
+				sol.add( ImageIO.read(new File("solfire.png")));
+				sol.add( ImageIO.read(new File("solskull.png")));
+				sol.add( ImageIO.read(new File("soltoile.png")));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -42,8 +43,8 @@ public class SpriteLoader {
 		if(wall==null) {
 			try {
 				wall=new ArrayList<Image>();
-				for(int i=0;i<15;i++) {
-					wall.add( ImageIO.read(new File("wall"+i+".png")));
+				for(int i=0;i<47;i++) {
+					wall.add( ImageIO.read(new File("sol"+i+".png")));
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

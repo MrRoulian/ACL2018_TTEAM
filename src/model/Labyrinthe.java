@@ -121,46 +121,46 @@ public class Labyrinthe {
 	public void reDrawMap() {
 		int res=0;
 		for (int i = 0; i < map.length; i++) {
-			for (int j = 0; j < map[0].length-1; j++) {
+			for (int j = 0; j < map[0].length; j++) {
 				
-				if(!map[i][j].isSolid()) {
+				if(map[i][j].isSolid()) {
 					if(j!=0 ) {
 						if(i!=0) {
-							if(!map[i-1][j-1].isSolid() && !(map[i-1][j].isSolid()) && !(map[i][j-1].isSolid())) {
+							if(map[i-1][j-1].isSolid() && (map[i-1][j].isSolid()) && (map[i][j-1].isSolid())) {
 								res+=1*1;
 							}
 						}
-						if(!map[i][j-1].isSolid()) {
+						if(map[i][j-1].isSolid()) {
 								res+=1*2;
 						}
 						//
 						if(i!=map.length-1) {
-							if(!map[i+1][j-1].isSolid() && !(map[i][j-1].isSolid()) && !(map[i+1][j].isSolid())) {
+							if(map[i+1][j-1].isSolid() && (map[i][j-1].isSolid()) && (map[i+1][j].isSolid())) {
 								res+=1*4;
 							}
 						}
 					}
 					if(i!=0) {
-						if(!map[i-1][j].isSolid()) {
+						if(map[i-1][j].isSolid()) {
 							res+=1*8;
 						}
 					}
 					if(i!=map.length-1) {
-						if(!map[i+1][j].isSolid()) {
+						if(map[i+1][j].isSolid()) {
 							res+=16*1;
 						}
 					}
-					if(j!= map[0].length-2) {
+					if(j!= map[0].length-1) {
 						if(i!=0) {
-							if(!map[i-1][j+1].isSolid() && !map[i-1][j].isSolid() && !map[i][j+1].isSolid() ) {
+							if(map[i-1][j+1].isSolid() && map[i-1][j].isSolid() && map[i][j+1].isSolid() ) {
 								res+=32*1;
 							}
 						}
-						if(!map[i][j+1].isSolid()) {
+						if(map[i][j+1].isSolid()) {
 								res+=64*1;
 						}
 						if(i!=map.length-1) {
-							if(!map[i+1][j+1].isSolid() && !map[i][j+1].isSolid() && !map[i+1][j].isSolid() ) {
+							if(map[i+1][j+1].isSolid() && map[i][j+1].isSolid() && map[i+1][j].isSolid() ) {
 								res+=1*128;
 							}
 						}
