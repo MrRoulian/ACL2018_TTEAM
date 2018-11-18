@@ -34,11 +34,11 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	/**
 	 * Code de la case de type Passage
 	 */
-	private static final int CODE_CASE_PASSAGE = 17;
+	private static final int CODE_CASE_PASSAGE = 3;
 	/**
 	 * Code de la case de type PiegeAOurs
 	 */
-	private static final int CODE_CASE_PIEGE_A_OURS = 18;
+	private static final int CODE_CASE_PIEGE_A_OURS = 4;
 	/**
 	 * Code de la case de type Magique
 	 */

@@ -159,9 +159,7 @@ public class Labyrinthe {
 							}
 						}
 					}
-					//System.out.println(res);
 					Bitmasking(map[i][j],res);
-					
 				}
 				res=0;
 			}
