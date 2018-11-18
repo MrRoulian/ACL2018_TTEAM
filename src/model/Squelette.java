@@ -11,7 +11,6 @@ public class Squelette extends Monstre {
 	
 	@Override
 	protected void dessiner(Graphics2D g) {
-		g.drawImage(SpriteLoader.getSol(0),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
 		if(!this.isdead()) {
 			g.drawImage(SpriteLoader.getSquelette(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
 		}else {

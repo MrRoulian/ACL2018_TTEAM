@@ -29,7 +29,13 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	/**
 	 * Code de la case de type vertical right
 	 */
-	private static final int CODE_CASE_MUR_VERTICALR = 2;
+	/**
+	 * Code de la case de type Tresor
+	 */
+	private static final int CODE_CASE_TRESOR = 2;
+	
+	
+	private static final int CODE_CASE_MUR_VERTICALR = 16;
 	/**
 	 * Code de la case de type vertical left
 	 */
@@ -82,10 +88,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 * Code de la case de type horizon
 	 */
 	private static final int CODE_CASE_2MUR_HORIZONTAL_ENDL = 15;
-	/**
-	 * Code de la case de type Tresor
-	 */
-	private static final int CODE_CASE_TRESOR = 16;
+
 	/**
 	 * Code de la case de type Passage
 	 */
@@ -201,56 +204,11 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 				valeurs = line.split(",");
 				for (int j = 0; j < height; j++) {
 					switch(Integer.parseInt(valeurs[j])) {
-					case CODE_BACK:
-						map[j][i]=new Sol(j,i,-1);
-						break;
 					case CODE_CASE_SOL:
-						map[j][i]=new Sol(j,i,0);
+						map[j][i]=new Sol(j,i);
 						break;
 					case CODE_CASE_MUR:
-						map[j][i]=new Mur(j,i,0);
-						break;
-					case CODE_CASE_MUR_VERTICALL:
-						map[j][i]=new Mur(j,i,1);
-						break;
-					case CODE_CASE_MUR_VERTICALR:
-						map[j][i]=new Mur(j,i,2);
-						break;
-					case CODE_CASE_MUR_HORIZON:
-						map[j][i]=new Mur(j,i,3);
-						break;
-					case CODE_CASE_MUR_ANGLED:
-						map[j][i]=new Mur(j,i,4);
-						break;
-					case CODE_CASE_MUR_ANGLEG:
-						map[j][i]=new Mur(j,i,5);
-						break;
-					case CODE_CASE_MUR_ANGLEHD:
-						map[j][i]=new Mur(j,i,6);
-						break;
-					case CODE_CASE_MUR_ANGLEHG:
-						map[j][i]=new Mur(j,i,7);
-						break;
-					case CODE_CASE_MUR_PILIER:
-						map[j][i]=new Mur(j,i,8);
-						break;
-					case CODE_CASE_2MUR_VERTICAL:
-						map[j][i]=new Mur(j,i,9);
-						break;
-					case CODE_CASE_2MUR_HORIZONTAL:
-						map[j][i]=new Mur(j,i,10);
-						break;
-					case CODE_CASE_2MUR_VERTICAL_ENDTOP:
-						map[j][i]=new Mur(j,i,11);
-						break;
-					case CODE_CASE_2MUR_VERTICAL_ENDBOTTOM:
-						map[j][i]=new Mur(j,i,12);
-						break;
-					case CODE_CASE_2MUR_HORIZONTAL_ENDR:
-						map[j][i]=new Mur(j,i,13);
-						break;
-					case CODE_CASE_2MUR_HORIZONTAL_ENDL:
-						map[j][i]=new Mur(j,i,14);
+						map[j][i]=new Mur(j,i);
 						break;
 					case CODE_CASE_TRESOR:
 						map[j][i] = new Tresor(j, i);
@@ -265,18 +223,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 					case CODE_CASE_MAGIQUE:
 						map[j][i]=new Magique(j,i);
 						break;
-					case CODE_CASE_SKULL:
-						map[j][i]=new Sol(j,i,1);
-						break;
-					case CODE_CASE_TOILE:
-						map[j][i]=new Sol(j,i,2);
-						break;
-					case CODE_CASE_FIRE:
-						map[j][i]=new Sol(j,i,3);
-						break;
-					case CODE_CASE_STONR:
-						map[j][i]=new Sol(j,i,5);
-						break;
+				
 					}
 				}
 				line = br.readLine();

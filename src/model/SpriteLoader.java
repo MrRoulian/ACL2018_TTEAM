@@ -27,35 +27,22 @@ public class SpriteLoader {
 		if(sol==null) {
 			try {
 				sol=new ArrayList<Image>();
-				sol.add(ImageIO.read(new File("sol.jpg")));
-				sol.add(ImageIO.read(new File("solskull.png")));
-				sol.add(ImageIO.read(new File("soltoile.png")));
-				sol.add(ImageIO.read(new File("solfire.png")));
-				sol.add(ImageIO.read(new File("solstone.png")));
+				for(int i=0;i<47;i++) {
+					sol.add( ImageIO.read(new File("sol"+i+".png")));
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		switch(id) {
-			case 1:
-				return sol.get(1);
-			case 2:
-				return sol.get(2);
-			case 3:
-				return sol.get(3);
-			case 4:
-				return sol.get(4);
-			default:
-				return sol.get(0);	
-		}
+		}	
+		return sol.get(id);
 	}
 	
 	public static Image getWall(int id) {
 		if(wall==null) {
 			try {
 				wall=new ArrayList<Image>();
-				for(int i=1;i<16;i++) {
+				for(int i=0;i<15;i++) {
 					wall.add( ImageIO.read(new File("wall"+i+".png")));
 				}
 			} catch (IOException e) {

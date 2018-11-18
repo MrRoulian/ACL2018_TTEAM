@@ -17,6 +17,10 @@ public abstract class Case {
 	/*
 	 * entier definissant le sprite encour
 	 */
+	protected int idSpriteBack;
+	/*
+	 * entier definissant le sprite encour
+	 */
 	protected int idSprite;
 	
 	/**
@@ -47,5 +51,13 @@ public abstract class Case {
 	 */
 	public boolean isSolid() {
 		return !traversable;
+	}
+	
+	public void setSprite(int s) {
+		idSprite=s;
+	}
+	
+	public void idSpriteBack(int s) {
+		idSpriteBack=s;
 	}
 }

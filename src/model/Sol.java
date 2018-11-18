@@ -7,12 +7,10 @@ import java.util.Random;
 
 public class Sol extends Case {
 
-	protected int idSprite;
 	
-	public Sol(int x, int y,int sprite) {
+	public Sol(int x, int y) {
 		super(x, y);
 		this.traversable = true;
-		idSprite=sprite;
 	}
 
 	@Override
@@ -22,9 +20,7 @@ public class Sol extends Case {
 
 	@Override
 	public void dessiner(Graphics2D g) {
-		if(idSprite!=-1) {
-		g.drawImage(SpriteLoader.getSol(idSprite),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-	
-		}
+		g.drawImage(SpriteLoader.getSol(idSpriteBack),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
+		
 	}
 }

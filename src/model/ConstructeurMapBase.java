@@ -34,7 +34,7 @@ public class ConstructeurMapBase implements ConstructeurMap{
 		//Creation de l'arène (tout les bord de la matrice sont des murs eet le centre est du sol)
 		for(int i=0;i<width;i++){
 			for(int j=0;j<height;j++){
-				map[i][j]=( i == 0 || i == width-1 || j == 0 || j == height-1)? new Mur(i,j,0) : new Sol(i,j,1);
+				map[i][j]=( i == 0 || i == width-1 || j == 0 || j == height-1)? new Mur(i,j) : new Sol(i,j);
 			}
 		}		
 		
