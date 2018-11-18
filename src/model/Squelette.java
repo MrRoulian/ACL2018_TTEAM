@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 public class Squelette extends Monstre {
 
@@ -9,12 +10,15 @@ public class Squelette extends Monstre {
 	}
 	
 	@Override
-	protected void dessiner(Graphics2D g) {
-		if(!this.isdead()) {
-			g.drawImage(SpriteLoader.getSquelette(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-		}else {
-			g.drawImage(SpriteLoader.getSquelettedead(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-			
+	public void dessiner(Graphics2D g, Entite entite) {
+		if (inScreen(entite)) {
+			Image sprite;
+			if(!this.isdead()) {
+				sprite = SpriteLoader.getSquelette();
+			}else {
+				sprite = SpriteLoader.getSquelettedead();
+			}
+			drawSprite(g, entite, sprite);
 		}
 	}
 

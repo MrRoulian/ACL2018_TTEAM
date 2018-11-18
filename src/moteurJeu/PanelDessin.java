@@ -26,7 +26,7 @@ public class PanelDessin extends JPanel {
 	/**
 	 * la taille des images
 	 */
-	private int width, height;
+	private static int width, height;
 
 	/**
 	 * Constructeur Il construit les images pour doublebuffering ainsi que le Panel associe. 
@@ -40,8 +40,8 @@ public class PanelDessin extends JPanel {
 	public PanelDessin(int x, int y, DessinJeu affiche) {
 		super();
 		this.setPreferredSize(new Dimension(x, y));
-		this.width = x;
-		this.height = y;
+		width = x;
+		height = y;
 		this.dessin=affiche;
 
 		// Cree l'image buffer et son graphics
@@ -66,7 +66,7 @@ public class PanelDessin extends JPanel {
 		// L'ancienne image est videe
 		this.imageSuivante = temp;
 		this.imageSuivante.getGraphics()
-				.fillRect(0, 0, this.width, this.height);
+				.fillRect(0, 0, width, height);
 		// Met a jour l'image a afficher sur le panel
 		this.repaint();
 	}
@@ -81,6 +81,24 @@ public class PanelDessin extends JPanel {
 		super.paint(g);
 		g.drawImage(this.imageEnCours, 0, 0, getWidth(), getHeight(), 0, 0,
 				getWidth(), getHeight(), null);
+		height = this.getHeight();
+		width = this.getWidth();
+	}
+	
+	/**
+	 * Getteur de la largeur de la fenetre 
+	 * @return width Largeur de la fenetre
+	 */
+	public static int getWindowsWidth() {
+		return width;
 	}
 
+
+	/**
+	 * Getteur de la hauteur de la fenetre 
+	 * @return width Hauteur de la fenetre
+	 */
+	public static int getWindowsHeight() {
+		return height;
+	}
 }

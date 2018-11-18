@@ -6,12 +6,7 @@ import moteurJeu.Commande;
 /**
  * Classe abstraite representant le comportement d'une entite vivate dans le jeu
  */
-public abstract class Entite {
-
-	/**
-	 * Entier correspondant a la position de l'entite 
-	 */
-	protected int x, y;
+public abstract class Entite extends Dessinable{
 	/**
 	 * Booleen indicant si l'entite a la capacite de traverser les cases normalement pas traversable
 	 */
@@ -35,12 +30,6 @@ public abstract class Entite {
 	 * @param commande Commande representant l'input clavier a l'iteration du jeu 
 	 */
 	protected abstract void update(Commande commande);
-
-	/**
-	 * Methode qui permet de dessiner l'entite sur l'image a construire
-	 * @param g Graphics sur lequel on dessine l'image
-	 */
-	protected abstract void dessiner(Graphics2D g);
 
 	public int getX() {
 		return x;

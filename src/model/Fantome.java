@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 public class Fantome extends Monstre {
 
@@ -10,14 +11,16 @@ public class Fantome extends Monstre {
 	}
 
 	@Override
-	protected void dessiner(Graphics2D g) {
-		//g.drawImage(SpriteLoader.getSol(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-		if(!this.isdead()) {
-			g.drawImage(SpriteLoader.getFantome(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-		}else {
-			g.drawImage(SpriteLoader.getFantomedead(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-			
-		}	
+	public void dessiner(Graphics2D g, Entite entite) {
+		if (inScreen(entite)) {
+			Image sprite;
+			if(!this.isdead()) {
+				sprite = SpriteLoader.getFantome();
+			}else {
+				sprite = SpriteLoader.getFantomedead();
+			}
+			drawSprite(g, entite, sprite);
+		}
 	}
 
 }

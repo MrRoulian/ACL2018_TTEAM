@@ -1,9 +1,12 @@
 package model;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
+
+import moteurJeu.PanelDessin;
 
 public class PiegeAOurs extends Special {
-	
+
 	public final static int DEGATSPIEGEOURS = 10;
 
 	public PiegeAOurs(int x, int y) {
@@ -20,13 +23,22 @@ public class PiegeAOurs extends Special {
 	}
 
 	@Override
-	public void dessiner(Graphics2D g) {
-		g.drawImage(SpriteLoader.getSol(0),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-			
-		if (!triggered) {
-			g.drawImage(SpriteLoader.getPiegeOurs(),x* LabyrinthePainter.WIDTH, y* LabyrinthePainter.HEIGHT, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-		
-		}
+	public void dessiner(Graphics2D g, Entite entite) {
+		// On test si la case est dans l'ecran 
+		if (this.inScreen(entite)) {
+			// On recupere le sprite du sol 
+			Image sprite = SpriteLoader.getSol(idSprite);
+			// On le dessine 
+			this.drawSprite(g, entite, sprite);
+
+			// On verifie que le piege n'est pas déjà déclanché
+			if (!triggered) {
+				// On recupere le sprite du piege 
+				sprite = SpriteLoader.getPiegeOurs();
+				// On le dessine
+				this.drawSprite(g, entite, sprite);
+			}
+		}		
 	}
 
 }

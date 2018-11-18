@@ -1,8 +1,10 @@
 package model;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 import moteurJeu.Commande;
+import moteurJeu.PanelDessin;
 
 public class Joueur extends Entite{
 
@@ -17,13 +19,18 @@ public class Joueur extends Entite{
 	}
 
 	@Override
-	protected void dessiner(Graphics2D g) {
-
-		g.drawImage(SpriteLoader.getknight(),x* LabyrinthePainter.WIDTH, y*LabyrinthePainter.HEIGHT-5, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);
-
+	public void dessiner(Graphics2D g, Entite entite) {
+		if (entite == this) {
+			int xDessin = PanelDessin.getWindowsWidth() / 2;
+			int yDessin = PanelDessin.getWindowsHeight() / 2;
+			g.drawImage(SpriteLoader.getknight(), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
+		} else {
+			if (inScreen(entite)) {
+				Image sprite = SpriteLoader.getknight();
+				this.drawSprite(g, entite, sprite);
+			}
+		}
 	}
-
-
 
 	@Override
 	protected void update(Commande commande) {

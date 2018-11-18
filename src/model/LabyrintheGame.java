@@ -162,15 +162,15 @@ public class LabyrintheGame implements Game {
 		// Demande a tout les elements du jeu de se dessiner 
 		
 		// Dabord la map 
-		this.map.dessiner(g);
+		this.map.dessiner(g, joueur);
 		
 		//Dessine les monstres
 		for (Monstre monstre : monstres) {
-			monstre.dessiner(g);
+			monstre.dessiner(g, joueur);
 		}
 		
 		// EN FIN le joueur (il est dessiné au dessus de tout autre elements
-		this.joueur.dessiner(g);
+		this.joueur.dessiner(g, joueur);
 	}
 
 	public Labyrinthe getMap() {

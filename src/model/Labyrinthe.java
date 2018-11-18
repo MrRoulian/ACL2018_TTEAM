@@ -68,11 +68,11 @@ public class Labyrinthe {
 	 * Methode qui permet de dessiner la map sur l'image a construire
 	 * @param g Graphics sur lequel on dessine l'image
 	 */
-	public void dessiner(Graphics2D g) {
+	public void dessiner(Graphics2D g, Entite entite) {
 		// Pour chaque case on la dessine 
 		for (Case[] cases : map) {
 			for (Case case1 : cases) {
-				case1.dessiner(g);
+				case1.dessiner(g, entite);
 			}
 		}
 	}

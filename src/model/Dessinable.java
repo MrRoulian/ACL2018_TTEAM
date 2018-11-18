@@ -3,40 +3,19 @@ package model;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
-import moteurJeu.Commande;
 import moteurJeu.PanelDessin;
 
-public abstract class Monstre extends Entite {
+public abstract class Dessinable {
+	/**
+	 * Entiers representant la position de l'objet dessinable
+	 */
+	protected int x,y;
 	
-	protected Comportement comportement;
-
-	public Monstre(Comportement c, int x , int y, Labyrinthe lab) {
-		this.comportement = c;
-		this.x=x;
-		this.y=y;
-		this.labyrinthe=lab;
-		this.triggerCase = false;
-		this.vie=100;
-	}
-	
-	@Override
-	protected void update(Commande com) {
-		Commande commande = comportement.bouger();
-		if(commande.droite) {
-			droite();
-		}
-		if(commande.gauche) {
-			gauche();
-		}
-		if(commande.haut) {
-			haut();
-		}
-		if(commande.bas) {
-			bas();
-		}
-	}
-
-	@Override
+	/**
+	 * Methode qui permet de dessiner l'objet sur l'image a construire
+	 * @param g Graphics sur lequel on dessine l'image
+	 * @param entite Entite par rapport a laquel on dessine le jeu 
+	 */
 	public abstract void dessiner(Graphics2D g, Entite entite);
 
 	/**
