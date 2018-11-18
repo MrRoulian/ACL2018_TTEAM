@@ -42,7 +42,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	/**
 	 * Code de la case de type Magique
 	 */
-	private static final int CODE_CASE_MAGIQUE = 19;
+	private static final int CODE_CASE_MAGIQUE = 5;
 	
 	/**
 	 * Map contenant pour chaque niveaux une liste de chaine correspondant a une map 
