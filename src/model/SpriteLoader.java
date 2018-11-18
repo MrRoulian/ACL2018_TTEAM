@@ -33,6 +33,7 @@ public class SpriteLoader {
 				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "solfire.png")));
 				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "solskull.png")));
 				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "soltoile.png")));
+				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "solstone.png")));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
