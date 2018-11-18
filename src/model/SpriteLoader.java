@@ -9,6 +9,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class SpriteLoader {
+	private static final String SPRITE_ROUTE = "Sprites/";
+	
 	private volatile static ArrayList<Image> sol =null;
 	private volatile static ArrayList<Image> wall =null;
 	private volatile static ArrayList<Image> piece =null;
@@ -27,12 +29,11 @@ public class SpriteLoader {
 		if(sol==null) {
 			try {
 				sol=new ArrayList<Image>();
-				sol.add( ImageIO.read(new File("sol.jpg")));
-				sol.add( ImageIO.read(new File("solfire.png")));
-				sol.add( ImageIO.read(new File("solskull.png")));
-				sol.add( ImageIO.read(new File("soltoile.png")));
+				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "sol.jpg")));
+				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "solfire.png")));
+				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "solskull.png")));
+				sol.add( ImageIO.read(new File(SPRITE_ROUTE + "soltoile.png")));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}	
@@ -44,10 +45,9 @@ public class SpriteLoader {
 			try {
 				wall=new ArrayList<Image>();
 				for(int i=0;i<47;i++) {
-					wall.add( ImageIO.read(new File("sol"+i+".png")));
+					wall.add( ImageIO.read(new File(SPRITE_ROUTE + "sol"+i+".png")));
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -58,10 +58,9 @@ public class SpriteLoader {
 			try {
 				piece=new ArrayList<Image>();
 				for(int i=1;i<7;i++) {
-					piece.add( ImageIO.read(new File("tresor"+i+".png")));
+					piece.add( ImageIO.read(new File(SPRITE_ROUTE + "tresor"+i+".png")));
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -71,9 +70,8 @@ public class SpriteLoader {
 	public static Image getknight() {
 		if(knight==null) {
 			try {
-				knight= ImageIO.read(new File("knight.png"));
+				knight= ImageIO.read(new File(SPRITE_ROUTE + "knight.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -83,9 +81,8 @@ public class SpriteLoader {
 	public static Image getPiegeOurs() {
 		if(piegeOurs==null) {
 			try {
-				piegeOurs= ImageIO.read(new File("piegeOurs.png"));
+				piegeOurs= ImageIO.read(new File(SPRITE_ROUTE + "piegeOurs.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -94,9 +91,8 @@ public class SpriteLoader {
 	public static Image getBump() {
 		if(bump==null) {
 			try {
-				bump= ImageIO.read(new File("bump.png"));
+				bump= ImageIO.read(new File(SPRITE_ROUTE + "bump.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -105,9 +101,8 @@ public class SpriteLoader {
 	public static Image getTeleport() {
 		if(teleport==null) {
 			try {
-				teleport= ImageIO.read(new File("teleport.png"));
+				teleport= ImageIO.read(new File(SPRITE_ROUTE + "teleport.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -117,9 +112,8 @@ public class SpriteLoader {
 	public static Image getTeleport2() {
 		if(teleport2==null) {
 			try {
-				teleport2= ImageIO.read(new File("teleport2.png"));
+				teleport2= ImageIO.read(new File(SPRITE_ROUTE + "teleport2.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -128,9 +122,8 @@ public class SpriteLoader {
 	public static Image getSquelette() {
 		if(squelette==null) {
 			try {
-				squelette= ImageIO.read(new File("squelette.png"));
+				squelette= ImageIO.read(new File(SPRITE_ROUTE + "squelette.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -140,9 +133,8 @@ public class SpriteLoader {
 	public static Image getSquelettedead() {
 		if(squelettedead==null) {
 			try {
-				squelettedead= ImageIO.read(new File("squelette2.png"));
+				squelettedead= ImageIO.read(new File(SPRITE_ROUTE + "squelette2.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -152,9 +144,8 @@ public class SpriteLoader {
 	public static Image getFantome() {
 		if(fantome==null) {
 			try {
-				fantome= ImageIO.read(new File("fantome.png"));
+				fantome= ImageIO.read(new File(SPRITE_ROUTE + "fantome.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -164,14 +155,12 @@ public class SpriteLoader {
 	public static Image getFantomedead() {
 		if(fantomedead==null) {
 			try {
-				fantomedead= ImageIO.read(new File("fantomedead.png"));
+				fantomedead= ImageIO.read(new File(SPRITE_ROUTE + "fantomedead.png"));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		return fantomedead;
 	}
-	
 	
 }
