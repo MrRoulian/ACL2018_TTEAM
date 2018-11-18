@@ -25,9 +25,6 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 */
 	private static final int CODE_CASE_MUR = 1;
 	/**
-	 * Code de la case de type vertical right
-	 */
-	/**
 	 * Code de la case de type Tresor
 	 */
 	private static final int CODE_CASE_TRESOR = 2;

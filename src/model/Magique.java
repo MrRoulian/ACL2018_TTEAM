@@ -17,23 +17,25 @@ public class Magique extends Special {
 	@Override
 	public void trigger(Entite entite) {
 		triggered=true;
-		switch (orientation){
-		case 0:
-			entite.haut();
-			entite.haut();
-			break;
-		case 1:
-			entite.bas();
-			entite.bas();
-			break;
-		case 2:
-			entite.gauche();
-			entite.gauche();
-			break;
-		case 3:
-			entite.droite();
-			entite.droite();
-			break;
+		if (!triggered) {
+			switch (orientation){
+			case 0:
+				entite.haut();
+				entite.haut();
+				break;
+			case 1:
+				entite.bas();
+				entite.bas();
+				break;
+			case 2:
+				entite.gauche();
+				entite.gauche();
+				break;
+			case 3:
+				entite.droite();
+				entite.droite();
+				break;
+			}
 		}
 	}
 
