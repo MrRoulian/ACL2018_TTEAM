@@ -17,8 +17,8 @@ public class LabyrinthePainter implements DessinJeu {
 	/**
 	 * la taille des cases
 	 */
-	protected static final int WIDTH = 35;
-	protected static final int HEIGHT = 35;
+	protected static final int WIDTH = 75;
+	protected static final int HEIGHT = 75;
 
 	/**
 	 * Le jeu a dessiner sur l'image
