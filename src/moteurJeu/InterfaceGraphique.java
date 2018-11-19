@@ -17,6 +17,12 @@ public class InterfaceGraphique  {
 	 * Le controleur lie a la JFrame
 	 */
 	private Controleur controleur;
+	/**
+	 * son du jeu
+	 */
+	private music son;
+	
+	
 	
 	/**
 	 * La construction de l'interface grpahique
@@ -44,6 +50,8 @@ public class InterfaceGraphique  {
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
 		f.getContentPane().requestFocus();
+		this.son = new music();
+		son.start();
 	}
 	
 	
