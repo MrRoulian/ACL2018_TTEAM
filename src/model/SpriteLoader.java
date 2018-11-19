@@ -24,6 +24,24 @@ public class SpriteLoader {
 	private volatile static Image fantome=null;
 	private volatile static Image fantomedead=null;
 	
+	private static int compteur=0;
+	
+	public static Image getCompteur() {
+		if(piece==null) {
+			try {
+				piece=new ArrayList<Image>();
+				for(int i=1;i<7;i++) {
+					piece.add( ImageIO.read(new File(SPRITE_ROUTE + "tresor"+i+".png")));
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		if(compteur==6) {
+			compteur=0;
+		}
+		return piece.get(compteur++);
+	}
 	
 	public static Image getSol(int id) {
 		if(sol==null) {

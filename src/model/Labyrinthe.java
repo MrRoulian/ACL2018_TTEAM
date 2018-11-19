@@ -1,6 +1,12 @@
 package model;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+
+import moteurJeu.PanelDessin;
 
 public class Labyrinthe {
 	
@@ -70,11 +76,30 @@ public class Labyrinthe {
 	 */
 	public void dessiner(Graphics2D g, Entite entite) {
 		// Pour chaque case on la dessine 
+		// On recupere le sprite de la piece   
 		for (Case[] cases : map) {
 			for (Case case1 : cases) {
 				case1.dessiner(g, entite);
 			}
 		}
+		// On le dessine
+		int xDessin = PanelDessin.getWindowsWidth() / 2;
+		int yDessin = PanelDessin.getWindowsHeight() / 2;
+		// Dessine l'image
+		if(g instanceof Graphics2D){
+	        Graphics2D g2 = (Graphics2D)g;
+			 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+			            RenderingHints.VALUE_ANTIALIAS_ON);
+			 Font font = new Font("Serif", Font.PLAIN, 50);
+			 g2.setFont(font);
+			 g.drawImage(SpriteLoader.getCompteur(),(xDessin/2)+70, (int)((0)), LabyrinthePainter.WIDTH,LabyrinthePainter.HEIGHT,null);
+			 g.setColor(new Color(255, 255, 255));
+			 g2.drawString(Labyrinthe.nbTreasureLeft+"", (xDessin/2) + 60, 55);
+			 g2.setColor(new Color(0, 0, 0));
+			 g2.fillRect(2, 22, 100*5, 30);
+			 g2.setColor(new Color(255, 0, 0));
+			 g2.fillRect(4, 24, (entite.vie*5)-4, 26);
+	    }
 	}
 
 	public void affiche(int x,int y) {
