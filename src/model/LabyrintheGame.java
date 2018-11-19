@@ -98,6 +98,7 @@ public class LabyrintheGame implements Game {
 	 */
 	public LabyrintheGame(String source,boolean t) throws CloneNotSupportedException {
 		BufferedReader helpReader;
+		monstres = new ArrayList<>();
 		try {
 			helpReader = new BufferedReader(new FileReader(source));
 			String ligne;
