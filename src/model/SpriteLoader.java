@@ -23,6 +23,7 @@ public class SpriteLoader {
 	private volatile static Image squelettedead=null;
 	private volatile static Image fantome=null;
 	private volatile static Image fantomedead=null;
+	private volatile static ArrayList<Image> heart =null;
 	
 	private static int compteur=0;
 	
@@ -184,6 +185,20 @@ public class SpriteLoader {
 			}
 		}
 		return fantomedead;
+	}
+	
+	public static Image getHeart(int id) {
+		if(heart==null) {
+			try {
+				heart=new ArrayList<Image>();
+				heart.add( ImageIO.read(new File(SPRITE_ROUTE +"heart.png")));
+				heart.add( ImageIO.read(new File(SPRITE_ROUTE +"halfheart.png")));
+				heart.add( ImageIO.read(new File(SPRITE_ROUTE +"noheart.png")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return heart.get(id);
 	}
 	
 }

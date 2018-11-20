@@ -16,6 +16,10 @@ public class Labyrinthe {
 	 * Represente le nombre de tresor dans la map avant la fin 
 	 */
 	public static int nbTreasureLeft;
+	/**
+	 * Represente le nombre de tresor dans la map avant la fin 
+	 */
+	public static int nbTreasure;
 
 	/**
 	 * Attributs representant la taille de la map 
@@ -88,18 +92,23 @@ public class Labyrinthe {
 		// Dessine l'image
 		if(g instanceof Graphics2D){
 	        Graphics2D g2 = (Graphics2D)g;
+			 int j=0;
+			 while(j<10) {
+				 if(j*10<entite.vie) {
+						g.drawImage(SpriteLoader.getHeart(0),(int)(45*j), (int)(15),45, 45,null);  
+				 }else {
+						g.drawImage(SpriteLoader.getHeart(2),(int)(45*j), (int)(15), 45, 45,null); 
+				 }
+				 j++;
+			 }
 			 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 			            RenderingHints.VALUE_ANTIALIAS_ON);
-			 Font font = new Font("Serif", Font.PLAIN, 50);
+			 Font font = new Font("Serif", Font.PLAIN, 45);
 			 g2.setFont(font);
-			 g.drawImage(SpriteLoader.getCompteur(),(xDessin/2)+70, (int)((0)), LabyrinthePainter.WIDTH,LabyrinthePainter.HEIGHT,null);
 			 g.setColor(new Color(255, 255, 255));
-			 g2.drawString(Labyrinthe.nbTreasureLeft+"", (xDessin/2) + 60, 55);
-			 g2.setColor(new Color(0, 0, 0));
-			 g2.fillRect(2, 22, 100*5, 30);
-			 g2.setColor(new Color(255, 0, 0));
-			 g2.fillRect(4, 24, (entite.vie*5)-4, 26);
-	    }
+			 g.drawImage(SpriteLoader.getCompteur(),(j)*50,(int)((0)),LabyrinthePainter.WIDTH,LabyrinthePainter.HEIGHT,null);
+			 g2.drawString((Labyrinthe.nbTreasure-Labyrinthe.nbTreasureLeft)+"/"+Labyrinthe.nbTreasure, (++j)*51, 50);
+		}
 	}
 
 	public void affiche(int x,int y) {
