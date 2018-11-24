@@ -10,7 +10,7 @@ public abstract class Monstre extends Entite {
 	
 	protected Comportement comportement;
 
-	public Monstre(Comportement c, int x , int y, Labyrinthe lab) {
+	public Monstre(Comportement c, int x , int y, LabyrintheGame lab) {
 		this.comportement = c;
 		this.x=x;
 		this.y=y;
@@ -21,7 +21,8 @@ public abstract class Monstre extends Entite {
 	
 	@Override
 	protected void update(Commande com) {
-		Commande commande = comportement.bouger();
+		
+		Commande commande = comportement.bouger(this.x, this.y, labyrinthe);
 		if(commande.droite) {
 			droite();
 		}

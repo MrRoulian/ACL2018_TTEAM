@@ -17,13 +17,13 @@ public class LabyrinthePainter implements DessinJeu {
 	/**
 	 * 
 	 */
-	protected static final int OFF_SCREEN = -300;
+	protected static final int OFF_SCREEN = 50;
 	
 	/**
 	 * la taille des cases
 	 */
-	protected static final int WIDTH = 75;
-	protected static final int HEIGHT = 75;
+	protected static final int WIDTH = 64;
+	protected static final int HEIGHT = 64;
 
 	/**
 	 * Le jeu a dessiner sur l'image

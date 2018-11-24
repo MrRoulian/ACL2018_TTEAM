@@ -8,7 +8,7 @@ public class Aleatoire implements Comportement {
 	private static final int TEMPS_ENTRE_ACTION = 5;
 
 	@Override
-	public Commande bouger() {
+	public Commande bouger(int posX, int posY, LabyrintheGame labyrinthe) {
 		Commande c = new Commande();
 		slow++;
 		if (slow%TEMPS_ENTRE_ACTION!=0){

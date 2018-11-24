@@ -5,7 +5,7 @@ import java.awt.Image;
 
 public class Fantome extends Monstre {
 
-	public Fantome(Comportement c, int x , int y, Labyrinthe lab) {
+	public Fantome(Comportement c, int x , int y, LabyrintheGame lab) {
 		super(c,x,y,lab);
 		avoidSolidCase = true;
 	}

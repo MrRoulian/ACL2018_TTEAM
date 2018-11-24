@@ -72,17 +72,17 @@ public class LabyrintheGame implements Game {
 		map = new Labyrinthe();
 		
 		// Initialisation du joueur 
-		joueur = new Joueur(map);
+		joueur = new Joueur(this);
 		
 		//Initialisation des monstres
 		int randX=0,randY=0;
 		boolean end = false;
 		do {
-			randX = (int)(Math.random()*joueur.labyrinthe.getWidth()-1)+1;
-			randY = (int)(Math.random()*joueur.labyrinthe.getHeight()-1)+1;
-			if (joueur.labyrinthe.getCase(randX, randY).traversable){
-				monstres.add(new Squelette(new Aleatoire(), randX, randY, map));
-				monstres.add(new Fantome(new Aleatoire(), randX, randY, map));
+			randX = (int)(Math.random()*joueur.labyrinthe.getMap().getWidth()-1)+1;
+			randY = (int)(Math.random()*joueur.labyrinthe.getMap().getHeight()-1)+1;
+			if (joueur.labyrinthe.getMap().getCase(randX, randY).traversable){
+				monstres.add(new Squelette(new Intelligent(), randX, randY, this));
+				monstres.add(new Fantome(new Aleatoire(), randX, randY, this));
 				end = true;
 			}
 		} while (!end);
@@ -115,7 +115,7 @@ public class LabyrintheGame implements Game {
 			map = new Labyrinthe(-1);
 			
 			// Initialisation du joueur 
-			joueur = new Joueur(map);
+			joueur = new Joueur(this);
 		// Initialisation du level a 1
 			levelActuel = -1;
 			//MAX_LEVEL = 1;
@@ -125,7 +125,7 @@ public class LabyrintheGame implements Game {
 			map = new Labyrinthe();
 			
 			// Initialisation du joueur 
-			joueur = new Joueur(map);
+			joueur = new Joueur(this);
 			levelActuel=1;
 		}
 		
