@@ -77,6 +77,20 @@ public abstract class Monstre extends Entite {
 				(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
 				LabyrinthePainter.WIDTH, 
 				LabyrinthePainter.HEIGHT,
-				null);  
+				null); 
+		 int j=0;
+		 while(j<10) {
+			 if(j*10<this.vie) {
+					g.drawImage(SpriteLoader.getHeart(0),(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin+10*j), 
+							(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin-10), 
+							10,10,null);  
+			 }else {
+					g.drawImage(SpriteLoader.getHeart(2),(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin+10*j), 
+							(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin-10), 
+							10, 10,null); 
+			 }
+			 j++;
+		 }
+		
 	}
 }
