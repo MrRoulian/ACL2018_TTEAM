@@ -23,10 +23,10 @@ public class Joueur extends Entite{
 		if (entite == this) {
 			int xDessin = PanelDessin.getWindowsWidth() / 2;
 			int yDessin = PanelDessin.getWindowsHeight() / 2;
-			g.drawImage(SpriteLoader.getknight(), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
+			g.drawImage(SpriteLoader.getknight(0), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
 		} else {
 			if (inScreen(entite)) {
-				Image sprite = SpriteLoader.getknight();
+				Image sprite = SpriteLoader.getknight(0);
 				this.drawSprite(g, entite, sprite);
 			}
 		}

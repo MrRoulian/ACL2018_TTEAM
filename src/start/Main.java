@@ -4,7 +4,6 @@ import model.LabyrinthePainter;
 import moteurJeu.MoteurGraphique;
 
 import java.awt.Dimension;
-
 import model.LabyrintheGame;
 
 /**
@@ -25,6 +24,7 @@ public class Main {
 		// classe qui lance le moteur de jeu generique
 		MoteurGraphique moteur = new MoteurGraphique(game, painter);
 		moteur.lancerJeu(width,height);
+
 	}
 
 }

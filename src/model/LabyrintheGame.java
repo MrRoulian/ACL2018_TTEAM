@@ -128,6 +128,8 @@ public class LabyrintheGame implements Game {
 			joueur = new Joueur(this);
 			levelActuel=1;
 		}
+		monstres.add(new Squelette(new Imobile(), 2, 3, this));
+		monstres.add(new Fantome(new Imobile(), 4, 4, this));
 		
 	}
 
@@ -188,6 +190,10 @@ public class LabyrintheGame implements Game {
 		System.out.println(map.getWidth());
 		map.affiche(joueur.x,joueur.y);
 
+	}
+
+	public ArrayList<Monstre> getMonstres() {
+		return monstres;
 	}
 
 }

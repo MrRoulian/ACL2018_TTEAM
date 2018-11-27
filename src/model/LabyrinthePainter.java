@@ -22,8 +22,8 @@ public class LabyrinthePainter implements DessinJeu {
 	/**
 	 * la taille des cases
 	 */
-	protected static final int WIDTH = 64;
-	protected static final int HEIGHT = 64;
+	protected static final int WIDTH = 100;
+	protected static final int HEIGHT = 100;
 
 	/**
 	 * Le jeu a dessiner sur l'image
@@ -43,6 +43,7 @@ public class LabyrinthePainter implements DessinJeu {
 		Graphics2D g2d = (Graphics2D) image.getGraphics();
 		g2d.setColor(new Color(83, 73, 63));
 		g2d.fillRect(0, 0, WIDTH*100, HEIGHT*100);
+		g2d.drawImage(SpriteLoader.getFond(),0,0,  WIDTH*100,  HEIGHT*100,null); 
 		jeu.dessiner(g2d);
 	}
 
