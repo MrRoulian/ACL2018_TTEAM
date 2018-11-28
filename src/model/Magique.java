@@ -17,27 +17,42 @@ public class Magique extends Special {
 
 	@Override
 	public void trigger(Entite entite) {
-		triggered=true;
 		if (!triggered) {
-			switch (orientation){
-			case 0:
-				entite.haut();
-				entite.haut();
-				break;
-			case 1:
-				entite.bas();
-				entite.bas();
-				break;
-			case 2:
-				entite.gauche();
-				entite.gauche();
-				break;
-			case 3:
-				entite.droite();
-				entite.droite();
-				break;
+			boolean bump =false;
+			LabyrintheGame lab =entite.labyrinthe;
+			while(!bump) {
+				switch (orientation){
+				case 0:
+					if(lab.map.getCase(x, y-1).traversable) {
+						entite.haut();
+						bump=true;
+					}
+					break;
+				case 1:
+					if(lab.map.getCase(x, y+1).traversable) {
+						entite.bas();
+						bump=true;
+					}
+					break;
+				case 2:
+					if(lab.map.getCase(x-1, y).traversable) {
+						entite.gauche();
+						bump=true;
+					}
+					break;
+				case 3:
+					if(lab.map.getCase(x+1, y).traversable) {
+						entite.droite();
+						bump=true;
+					}
+					break;
+				}
+				orientation = (int)(Math.random()*4);
 			}
+			triggered=true;
+			this.traversable=false;
 		}
+		
 	}
 
 	@Override
