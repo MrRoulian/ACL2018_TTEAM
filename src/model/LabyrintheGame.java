@@ -128,8 +128,8 @@ public class LabyrintheGame implements Game {
 			joueur = new Joueur(this);
 			levelActuel=1;
 		}
-		monstres.add(new Squelette(new Imobile(), 2, 3, this));
-		monstres.add(new Fantome(new Imobile(), 4, 4, this));
+		monstres.add(new Squelette(new Intelligent(), 2, 3, this));
+		monstres.add(new Fantome(new Aleatoire(), 4, 4, this));
 		
 	}
 
@@ -149,8 +149,49 @@ public class LabyrintheGame implements Game {
 			fini = true;
 			System.out.println("Le jeu est fini GG");
 		} else {
+			//Si le iveau est fini on lance le suivant
 			if (Labyrinthe.nbTreasureLeft <= 0) {
+				// On construit le niveau suivant
 				map.construire(++levelActuel);
+
+				// On place le joueur sur une case non solide aléatoire 
+				int randX,randY;
+				boolean end = false;
+				do {
+					randX = (int)(Math.random() * map.getWidth());
+					randY = (int)(Math.random() * map.getHeight());
+					if (!map.getCase(randX, randY).isSolid()){
+						joueur.x = randX;
+						joueur.y = randY;
+						end = true;
+					}
+				} while (!end);
+				// On supprime les ancien monstres 
+				monstres.clear();
+
+				// On creer de nouveaux monstres 
+				for (int i = 0; i < levelActuel + (int)(Math.random() * (levelActuel * levelActuel)); i++) {
+					end = false;
+					do {
+						randX = (int)(Math.random() * map.getWidth());
+						randY = (int)(Math.random() * map.getHeight());
+						if (!map.getCase(randX, randY).isSolid()){
+							joueur.x = randX;
+							joueur.y = randY;
+							end = true;
+						}
+					} while (!end);
+					switch ((int)(Math.random()*2)) {
+					case 0:
+						monstres.add(new Squelette(new Intelligent(), randX, randY, this));
+						break;
+					case 1:
+						monstres.add(new Fantome(new Aleatoire(), randX, randY, this));						
+						break;
+					default:
+						break;
+					}
+				}
 			}
 		}
 	}
