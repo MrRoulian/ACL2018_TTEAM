@@ -55,6 +55,7 @@ public class MoteurGraphique {
 			this.gui.dessiner();
 			// Met en attente
 			Thread.sleep(100);
+			this.jeu.testfin();
 		}
 	}
 
