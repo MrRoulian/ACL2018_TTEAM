@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ConstructeurMapFichier implements ConstructeurMap{
-	
+
 	//Codes representant les type de case dans le fichier csv de la map a recuperer
-	
+
 	/**
 	 * Code de la case de type back
 	 */
@@ -40,7 +40,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 * Code de la case de type Magique
 	 */
 	private static final int CODE_CASE_MAGIQUE = 5;
-	
+
 	/**
 	 * Map contenant pour chaque niveaux une liste de chaine correspondant a une map 
 	 */
@@ -49,7 +49,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 * Instance du generateur pour eviter la multiplication d'instance
 	 */
 	private static ConstructeurMapFichier instance;
-	
+
 	/**
 	 * Constructeur prive pour eviter la creation de noveaux objet en dehors de notre instance
 	 */
@@ -90,8 +90,15 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		level3.add("map/level3map4.csv");
 		// Ajout de la liste a la map 
 		mapFichierMapParLevel.put(3, level3);
+		// ----- Map de level 4 ----- //
+		// Creation de la liste de map de niveau 4
+		ArrayList<String> level4 = new ArrayList<String>();
+		// Ajout des fichier de map a la liste 
+		level4.add("map/level4map1.csv");
+		// Ajout de la liste a la map 
+		mapFichierMapParLevel.put(4, level4);
 	}
-	
+
 	/**
 	 * Methode permetant de recuperer l'instance du ConstructeurMapFichier
 	 * @return Instance de ConstructeurMapFichier
@@ -103,7 +110,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		}
 		return instance;
 	}
-	
+
 	@Override
 	public Case[][] newMap(int level) throws GenerationException {
 		Labyrinthe.nbTreasure = 0;
@@ -120,7 +127,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 			int height = Integer.parseInt(valeurs[1]);
 
 			map = new Case[width][height];
-			
+
 			line = br.readLine();
 			int i = 0;
 			while (line != null) {
@@ -146,7 +153,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 					case CODE_CASE_MAGIQUE:
 						map[j][i]=new Magique(j,i);
 						break;
-				
+
 					}
 				}
 				line = br.readLine();
