@@ -109,7 +109,7 @@ public class Labyrinthe {
 			 g.setColor(new Color(255, 255, 255));
 			 g.drawImage(SpriteLoader.getCompteur(),(int)(-size/4),(int)((size-10)),(int)(size*1.5),(int)(size*1.5),null);
 			 g2.drawString((Labyrinthe.nbTreasure-Labyrinthe.nbTreasureLeft)+"/"+Labyrinthe.nbTreasure, size, 2*size);
-			 g2.drawString("niveau :"+"1", PanelDessin.getWindowsWidth() -size*4, size-20);
+			 g2.drawString("niveau :"+this.height/10, PanelDessin.getWindowsWidth() -size*4, size-20);
 				
 		}
 	}
