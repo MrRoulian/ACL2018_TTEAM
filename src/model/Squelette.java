@@ -5,7 +5,7 @@ import java.awt.Image;
 
 public class Squelette extends Monstre {
 
-	public Squelette(Comportement c, int x, int y, Labyrinthe lab) {
+	public Squelette(Comportement c, int x, int y, LabyrintheGame lab) {
 		super(c,x,y,lab);
 	}
 	

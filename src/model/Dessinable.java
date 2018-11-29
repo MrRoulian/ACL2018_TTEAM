@@ -9,10 +9,6 @@ import moteurJeu.PanelDessin;
 
 public abstract class Dessinable {
 	/**
-	 * Distance de vue pour le brouillard de guerre
-	 */
-	protected int distanceFog = 4;
-	/**
 	 * Entiers representant la position de l'objet dessinable
 	 */
 	protected int x,y;
@@ -55,23 +51,13 @@ public abstract class Dessinable {
 		// Calcul millieu de l'ecran 
 		int xDessin = PanelDessin.getWindowsWidth() / 2;
 		int yDessin = PanelDessin.getWindowsHeight() / 2;
-		// Si la case n'est pas dans le brouillard 		
-		if (distanceFog > distance(entite)) {
-			// Dessine l'image
-			g.drawImage(sprite,
-					(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin), 
-					(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
-					LabyrinthePainter.WIDTH, 
-					LabyrinthePainter.HEIGHT,
-					null);  
-		} else {
-			g.setColor(new Color(83, 73, 63));
-			g.fillRect(
-					(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin), 
-					(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
-					LabyrinthePainter.WIDTH, 
-					LabyrinthePainter.HEIGHT);
-		}
+		// Dessine l'image
+		g.drawImage(sprite,
+				(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin), 
+				(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
+				LabyrinthePainter.WIDTH, 
+				LabyrinthePainter.HEIGHT,
+				null);
 
 	}
 

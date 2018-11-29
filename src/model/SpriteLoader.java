@@ -14,7 +14,7 @@ public class SpriteLoader {
 	private volatile static ArrayList<Image> sol =null;
 	private volatile static ArrayList<Image> wall =null;
 	private volatile static ArrayList<Image> piece =null;
-	private volatile static Image knight =null;
+	private volatile static ArrayList<Image> knight =null;
 	private volatile static Image piegeOurs =null;
 	private volatile static Image bump=null;
 	private volatile static Image teleport=null;
@@ -23,6 +23,8 @@ public class SpriteLoader {
 	private volatile static Image squelettedead=null;
 	private volatile static Image fantome=null;
 	private volatile static Image fantomedead=null;
+	private volatile static ArrayList<Image> heart =null;
+	private volatile static ArrayList<Image> fond =null;
 	
 	private static int compteur=0;
 	
@@ -90,15 +92,17 @@ public class SpriteLoader {
 		return piece.get(id);
 	}
 
-	public static Image getknight() {
+	public static Image getknight(int id) {
 		if(knight==null) {
 			try {
-				knight= ImageIO.read(new File(SPRITE_ROUTE + "knight.png"));
+				knight=new ArrayList<Image>();
+				knight.add( ImageIO.read(new File(SPRITE_ROUTE + "knight.png")));
+				knight.add( ImageIO.read(new File(SPRITE_ROUTE + "knightAttack.png")));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		return knight;
+		return knight.get(id);
 	}
 	
 	public static Image getPiegeOurs() {
@@ -184,6 +188,34 @@ public class SpriteLoader {
 			}
 		}
 		return fantomedead;
+	}
+	
+	public static Image getHeart(int id) {
+		if(heart==null) {
+			try {
+				heart=new ArrayList<Image>();
+				heart.add( ImageIO.read(new File(SPRITE_ROUTE +"heart.png")));
+				heart.add( ImageIO.read(new File(SPRITE_ROUTE +"halfheart.png")));
+				heart.add( ImageIO.read(new File(SPRITE_ROUTE +"noheart.png")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return heart.get(id);
+	}
+	public static Image getFond() {
+		
+		if(fond==null) {
+			try {
+				fond=new ArrayList<Image>();
+				fond.add( ImageIO.read(new File(SPRITE_ROUTE + "fond.png")));
+			
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return fond.get(0);
 	}
 	
 }

@@ -106,7 +106,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	
 	@Override
 	public Case[][] newMap(int level) throws GenerationException {
-		Labyrinthe.nbTreasureLeft = 0;
+		Labyrinthe.nbTreasure = 0;
 		Case[][] map;
 		BufferedReader br;
 		try {
@@ -135,7 +135,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 						break;
 					case CODE_CASE_TRESOR:
 						map[j][i] = new Tresor(j, i);
-						Labyrinthe.nbTreasureLeft++;
+						Labyrinthe.nbTreasure++;
 						break;
 					case CODE_CASE_PASSAGE:
 						map[j][i]=new Passage(j,i);
@@ -153,6 +153,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 				i++;
 			}
 			br.close();
+			Labyrinthe.nbTreasureLeft =Labyrinthe.nbTreasure;
 			return map;
 		} catch (FileNotFoundException e) {
 			GenerationException ex = new GenerationException("Le fichier de la map n'existe pas");

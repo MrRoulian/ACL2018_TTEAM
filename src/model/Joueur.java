@@ -10,7 +10,7 @@ public class Joueur extends Entite{
 
 	public static int test=0;
 	
-	public Joueur(Labyrinthe lab) {
+	public Joueur(LabyrintheGame lab) {
 		this.x = 5;
 		this.y = 5;
 		this.labyrinthe=lab;
@@ -23,10 +23,10 @@ public class Joueur extends Entite{
 		if (entite == this) {
 			int xDessin = PanelDessin.getWindowsWidth() / 2;
 			int yDessin = PanelDessin.getWindowsHeight() / 2;
-			g.drawImage(SpriteLoader.getknight(), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
+			g.drawImage(SpriteLoader.getknight(0), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
 		} else {
 			if (inScreen(entite)) {
-				Image sprite = SpriteLoader.getknight();
+				Image sprite = SpriteLoader.getknight(0);
 				this.drawSprite(g, entite, sprite);
 			}
 		}

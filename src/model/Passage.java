@@ -17,9 +17,9 @@ public class Passage extends Special {
 			int randX,randY;
 			boolean end = false;
 			do {
-				randX = (int)(Math.random()*entite.labyrinthe.getWidth()-1)+1;
-				randY = (int)(Math.random()*entite.labyrinthe.getHeight()-1)+1;
-				if (entite.labyrinthe.getCase(randX, randY).traversable){
+				randX = (int)(Math.random()*entite.labyrinthe.getMap().getWidth()-1)+1;
+				randY = (int)(Math.random()*entite.labyrinthe.getMap().getHeight()-1)+1;
+				if (entite.labyrinthe.getMap().getCase(randX, randY).traversable){
 					entite.x = randX;
 					entite.y = randY;
 					entite.gauche();entite.droite(); //sert a trigger la case si je suis sur un piège

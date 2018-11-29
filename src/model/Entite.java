@@ -1,7 +1,5 @@
 package model;
 
-import java.awt.Graphics2D;
-
 import moteurJeu.Commande;
 /**
  * Classe abstraite representant le comportement d'une entite vivate dans le jeu
@@ -21,9 +19,9 @@ public abstract class Entite extends Dessinable{
 	protected int vie;
 
 	/**
-	 * Map dans laquel notre entite evolue
+	 * Jeu dans laquel notre entite evolue
 	 */
-	protected Labyrinthe labyrinthe;
+	protected LabyrintheGame labyrinthe;
 	
 	/**
 	 * Permet au moteur de mettre a jour l'entite a chaque iteration du jeu 
@@ -45,17 +43,17 @@ public abstract class Entite extends Dessinable{
 	public void droite() {
 		// Si l'entite ne peut traverser les cases on teste la collision sinon on deplace vers la droite
 		if (!avoidSolidCase) {
-			if(labyrinthe.getCase(++x, y).isSolid()) {
+			if(labyrinthe.getMap().getCase(++x, y).isSolid()) {
 				this.x--;
 			}
 		} else {
-			if (x + 1 < labyrinthe.getWidth()) {
+			if (x + 1 < labyrinthe.getMap().getWidth()) {
 				++x;				
 			}
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
-			labyrinthe.getCase(x, y).trigger(this);
+			labyrinthe.getMap().getCase(x, y).trigger(this);
 		}
 	}
 
@@ -65,7 +63,7 @@ public abstract class Entite extends Dessinable{
 	public void gauche() {
 		// Si l'entite ne peut traverser les cases on teste la collision sinon on deplace vers la gauche
 		if (!avoidSolidCase) {
-			if(labyrinthe.getCase(--x, y).isSolid()) {
+			if(labyrinthe.getMap().getCase(--x, y).isSolid()) {
 				this.x++;
 			}
 		} else {
@@ -75,7 +73,7 @@ public abstract class Entite extends Dessinable{
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
-			labyrinthe.getCase(x, y).trigger(this);
+			labyrinthe.getMap().getCase(x, y).trigger(this);
 		}
 	}
 
@@ -85,7 +83,7 @@ public abstract class Entite extends Dessinable{
 	public void haut() {
 		// Si l'entite ne peut traverser les cases on teste la collision sinon on deplace vers le haut
 		if (!avoidSolidCase) {
-			if(labyrinthe.getCase(x, --y).isSolid()) {
+			if(labyrinthe.getMap().getCase(x, --y).isSolid()) {
 				this.y++;
 			}
 		} else {
@@ -95,7 +93,7 @@ public abstract class Entite extends Dessinable{
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
-			labyrinthe.getCase(x, y).trigger(this);
+			labyrinthe.getMap().getCase(x, y).trigger(this);
 		}
 	}
 
@@ -105,17 +103,17 @@ public abstract class Entite extends Dessinable{
 	public void bas() {
 		// Si l'entite ne peut traverser les cases on teste la collision sinon on deplace vers le bas
 		if (!avoidSolidCase) {
-			if(labyrinthe.getCase(x, ++y).isSolid()) {
+			if(labyrinthe.getMap().getCase(x, ++y).isSolid()) {
 				this.y--;
 			}
 		} else {
-			if (y + 1 < labyrinthe.getHeight()){
+			if (y + 1 < labyrinthe.getMap().getHeight()){
 				++y;			
 			}
 		}
 		// Si l'entite declanche les cases on declanche la case sur lequel il passe 
 		if (triggerCase) {
-			labyrinthe.getCase(x, y).trigger(this);
+			labyrinthe.getMap().getCase(x, y).trigger(this);
 		}
 	}
 

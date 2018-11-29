@@ -16,6 +16,10 @@ public class Labyrinthe {
 	 * Represente le nombre de tresor dans la map avant la fin 
 	 */
 	public static int nbTreasureLeft;
+	/**
+	 * Represente le nombre de tresor dans la map avant la fin 
+	 */
+	public static int nbTreasure;
 
 	/**
 	 * Attributs representant la taille de la map 
@@ -85,21 +89,29 @@ public class Labyrinthe {
 		// On le dessine
 		int xDessin = PanelDessin.getWindowsWidth() / 2;
 		int yDessin = PanelDessin.getWindowsHeight() / 2;
+		int size=(PanelDessin.getWindowsWidth()/2)/10;
 		// Dessine l'image
 		if(g instanceof Graphics2D){
 	        Graphics2D g2 = (Graphics2D)g;
+			 int j=0;
+			 while(j<10) {
+				 if(j*10<entite.vie) {
+						g.drawImage(SpriteLoader.getHeart(0),(int)(size*j), (int)(5),size, size,null);  
+				 }else {
+						g.drawImage(SpriteLoader.getHeart(2),(int)(size*j), (int)(5), size, size,null); 
+				 }
+				 j++;
+			 }
 			 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 			            RenderingHints.VALUE_ANTIALIAS_ON);
-			 Font font = new Font("Serif", Font.PLAIN, 50);
+			 Font font = new Font("Serif", Font.PLAIN, size);
 			 g2.setFont(font);
-			 g.drawImage(SpriteLoader.getCompteur(),(xDessin/2)+70, (int)((0)), LabyrinthePainter.WIDTH,LabyrinthePainter.HEIGHT,null);
 			 g.setColor(new Color(255, 255, 255));
-			 g2.drawString(Labyrinthe.nbTreasureLeft+"", (xDessin/2) + 60, 55);
-			 g2.setColor(new Color(0, 0, 0));
-			 g2.fillRect(2, 22, 100*5, 30);
-			 g2.setColor(new Color(255, 0, 0));
-			 g2.fillRect(4, 24, (entite.vie*5)-4, 26);
-	    }
+			 g.drawImage(SpriteLoader.getCompteur(),(int)(-size/4),(int)((size-10)),(int)(size*1.5),(int)(size*1.5),null);
+			 g2.drawString((Labyrinthe.nbTreasure-Labyrinthe.nbTreasureLeft)+"/"+Labyrinthe.nbTreasure, size, 2*size);
+			 g2.drawString("niveau :"+"1", PanelDessin.getWindowsWidth() -size*4, size-20);
+				
+		}
 	}
 
 	public void affiche(int x,int y) {
@@ -152,7 +164,6 @@ public class Labyrinthe {
 						if(map[i][j-1].isSolid()) {
 								res+=1*2;
 						}
-						//
 						if(i!=map.length-1) {
 							if(map[i+1][j-1].isSolid() && (map[i][j-1].isSolid()) && (map[i+1][j].isSolid())) {
 								res+=1*4;
@@ -166,13 +177,13 @@ public class Labyrinthe {
 					}
 					if(i!=map.length-1) {
 						if(map[i+1][j].isSolid()) {
-							res+=16*1;
+							res+=1*16;
 						}
 					}
 					if(j!= map[0].length-1) {
 						if(i!=0) {
 							if(map[i-1][j+1].isSolid() && map[i-1][j].isSolid() && map[i][j+1].isSolid() ) {
-								res+=32*1;
+								res+=1*32;
 							}
 						}
 						if(map[i][j+1].isSolid()) {
