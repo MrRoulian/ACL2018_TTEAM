@@ -1,16 +1,22 @@
 package model;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 
 import moteurJeu.PanelDessin;
 
 public abstract class Dessinable {
 	/**
+	 * Distance de vue pour le brouillard de guerre
+	 */
+	protected int distanceFog = 4;
+	/**
 	 * Entiers representant la position de l'objet dessinable
 	 */
 	protected int x,y;
-	
+
 	/**
 	 * Methode qui permet de dessiner l'objet sur l'image a construire
 	 * @param g Graphics sur lequel on dessine l'image
@@ -38,7 +44,7 @@ public abstract class Dessinable {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Dessine le sprite donné a la position de la case relative a la position de l'entite donnée 
 	 * @param g Image sur laquel on dessine
@@ -49,12 +55,34 @@ public abstract class Dessinable {
 		// Calcul millieu de l'ecran 
 		int xDessin = PanelDessin.getWindowsWidth() / 2;
 		int yDessin = PanelDessin.getWindowsHeight() / 2;
-		// Dessine l'image
-		g.drawImage(sprite,
-				(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin), 
-				(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
-				LabyrinthePainter.WIDTH, 
-				LabyrinthePainter.HEIGHT,
-				null);  
+		// Si la case n'est pas dans le brouillard 		
+		if (distanceFog > distance(entite)) {
+			// Dessine l'image
+			g.drawImage(sprite,
+					(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin), 
+					(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
+					LabyrinthePainter.WIDTH, 
+					LabyrinthePainter.HEIGHT,
+					null);  
+		} else {
+			g.setColor(new Color(83, 73, 63));
+			g.fillRect(
+					(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin), 
+					(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
+					LabyrinthePainter.WIDTH, 
+					LabyrinthePainter.HEIGHT);
+		}
+
+	}
+
+	/**
+	 * Donne la distance entre l'objet dessinable et l'entite donnee 
+	 * @param entite Entite par rapport a laquel on cherche la distance
+	 * @return Distance entre l'objet et l'entite
+	 */
+	protected double distance(Entite entite){
+		Point p1 = new Point(x,y); 
+		Point p2 = new Point(entite.x, entite.y);
+		return p1.distance(p2);
 	}
 }

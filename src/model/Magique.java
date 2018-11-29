@@ -18,6 +18,7 @@ public class Magique extends Special {
 	@Override
 	public void trigger(Entite entite) {
 		triggered=true;
+		traversable = false;
 		if (!triggered) {
 			switch (orientation){
 			case 0:

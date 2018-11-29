@@ -17,7 +17,7 @@ public class LabyrinthePainter implements DessinJeu {
 	/**
 	 * 
 	 */
-	protected static final int OFF_SCREEN = -300;
+	protected static final int OFF_SCREEN = 50;
 	
 	/**
 	 * la taille des cases
