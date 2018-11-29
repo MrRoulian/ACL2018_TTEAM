@@ -28,4 +28,6 @@ public interface Game {
 	 *            image sur laquelle dessiner
 	 */
 	public void dessiner(Graphics2D g);
+	
+	public void testfin();
 }

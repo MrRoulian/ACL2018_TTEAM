@@ -1,13 +1,19 @@
 package model;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
 import moteurJeu.Commande;
 import moteurJeu.Game;
+import moteurJeu.PanelDessin;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -145,9 +151,11 @@ public class LabyrintheGame implements Game {
 	}
 
 	private void testerFin() {
+		if(joueur.isdead()) {
+			fini=true;
+		}
 		if (Labyrinthe.nbTreasureLeft <= 0 && levelActuel == MAX_LEVEL) {
 			fini = true;
-			System.out.println("Le jeu est fini GG");
 		} else {
 			//Si le iveau est fini on lance le suivant
 			if (Labyrinthe.nbTreasureLeft <= 0) {
@@ -215,6 +223,78 @@ public class LabyrintheGame implements Game {
 		
 		// EN FIN le joueur (il est dessiné au dessus de tout autre elements
 		this.joueur.dessiner(g, joueur);
+		
+		if(fini) {
+			if(joueur.isdead()) {
+				g.drawImage(SpriteLoader.getGameOver(), 0, 0, PanelDessin.getWindowsWidth(),
+						PanelDessin.getWindowsHeight(),null);	
+			}else {
+				
+				g.drawImage(SpriteLoader.getWin(), 0, 0, PanelDessin.getWindowsWidth(),
+						PanelDessin.getWindowsHeight(),null);
+			}
+		}
+		
+	}
+	
+	public void testfin() {
+		if(fini) {
+			if(joueur.isdead()) {
+
+				JOptionPane jo = new JOptionPane();
+				int option = JOptionPane.showConfirmDialog(null, "veux tu recommencer ?", "TU ES NUL", JOptionPane.YES_NO_OPTION,
+						JOptionPane.NO_OPTION);
+				if (option == JOptionPane.YES_NO_OPTION) {
+					fini=false;
+
+					this.regame();
+					
+				}
+				if (option == JOptionPane.NO_OPTION) {
+					System.exit(0);
+				}
+				if (option == JOptionPane.CLOSED_OPTION) {
+					System.exit(0);
+				}
+			}else {
+				
+				System.out.println("Le jeu est fini GG");
+				JOptionPane jo = new JOptionPane();
+				int option = JOptionPane.showConfirmDialog(null, "veux tu recommencer ?", "TU ES VICTORIEUX", JOptionPane.YES_NO_OPTION,
+						JOptionPane.NO_OPTION);
+				if (option == JOptionPane.YES_NO_OPTION) {
+					fini=false;
+					this.regame();
+					
+				}
+				if (option == JOptionPane.NO_OPTION) {
+					System.exit(0);
+				}
+				if (option == JOptionPane.CLOSED_OPTION) {
+					System.exit(0);
+				}
+			}
+		}
+	}
+	
+	public void regame() {
+		// Initialisation du joueur 
+
+		map.construire(1);
+		joueur = new Joueur(this);
+		monstres.clear();
+		//Initialisation des monstres
+		int randX=0,randY=0;
+		boolean end = false;
+		do {
+			randX = (int)(Math.random()*joueur.labyrinthe.getMap().getWidth()-1)+1;
+			randY = (int)(Math.random()*joueur.labyrinthe.getMap().getHeight()-1)+1;
+			if (joueur.labyrinthe.getMap().getCase(randX, randY).traversable){
+				monstres.add(new Squelette(new Intelligent(), randX, randY, this));
+				monstres.add(new Fantome(new Aleatoire(), randX, randY, this));
+				end = true;
+			}
+		} while (!end);
 	}
 
 	public Labyrinthe getMap() {

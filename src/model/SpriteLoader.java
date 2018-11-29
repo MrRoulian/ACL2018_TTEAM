@@ -25,7 +25,8 @@ public class SpriteLoader {
 	private volatile static Image fantomedead=null;
 	private volatile static ArrayList<Image> heart =null;
 	private volatile static ArrayList<Image> fond =null;
-	
+	private volatile static Image gameover=null;
+	private volatile static Image win=null;
 	private static int compteur=0;
 	
 	public static Image getCompteur() {
@@ -216,6 +217,28 @@ public class SpriteLoader {
 			}
 		}	
 		return fond.get(0);
+	}
+	
+	public static Image getGameOver(){
+		if(gameover==null) {
+			try {
+				gameover=ImageIO.read(new File(SPRITE_ROUTE +"GAMEOVER.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return gameover;
+	}
+	
+	public static Image getWin(){
+		if(win==null) {
+			try {
+				gameover=ImageIO.read(new File(SPRITE_ROUTE +"WIN.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return win;
 	}
 	
 }
