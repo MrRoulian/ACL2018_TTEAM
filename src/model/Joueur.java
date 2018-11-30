@@ -14,7 +14,7 @@ public class Joueur extends Entite{
 	public int attaque;
 	private int slow = 0;
 	private static final int TEMPS_ENTRE_ACTION = 2;
-	private static final int ATTACK_DAMAGE = 20;
+	private static final int ATTACK_DAMAGE = 50;
 	
 	public Joueur(LabyrintheGame lab) {
 		this.x = 5;
