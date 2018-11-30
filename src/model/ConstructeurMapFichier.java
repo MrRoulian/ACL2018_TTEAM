@@ -73,6 +73,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		level1.add("map/level1map1.csv");
 		level1.add("map/level1map2.csv");
 		level1.add("map/level1map3.csv");
+		level1.add("map/level1map4.csv");
 		// Ajout de la liste a la map 
 		mapFichierMapParLevel.put(1, level1);
 		// ----- Map de level 2 ----- //
