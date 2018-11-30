@@ -28,9 +28,9 @@ public class SpriteLoader {
 	private volatile static Image gameover=null;
 	private volatile static Image win=null;
 	private volatile static Image potion=null;
+	private volatile static Image beer=null;
 	private volatile static ArrayList<Image> fire =null;
 	private static int compteur=0;
-	private static int compteurfire=0;
 	
 	public static Image getCompteur() {
 		if(piece==null) {
@@ -270,6 +270,16 @@ public class SpriteLoader {
 			}
 		}	
 		return fire.get(id);
+	}
+	public static Image getBeer(){
+		if(beer==null) {
+			try {
+				beer=ImageIO.read(new File(SPRITE_ROUTE +"beer.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return beer;
 	}
 	
 }

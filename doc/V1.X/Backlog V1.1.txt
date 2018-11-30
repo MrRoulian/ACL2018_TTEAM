@@ -1,15 +1,14 @@
-Sprint 1 :
+Sprint 4 :
 Alexis ABLI-BOUYO :
-Adaptation d'une interface graphique
-Representation des cases du labyrinthe
+ajout level
 
 Alexis BARTHELEMY :
-Adaptation d'une interface graphique
-Affichage des elements du jeu 
+ajout level
 
 Gauthier BRIN :
-Deplacement du Hero 
-Collision avec les mur 
+case potion
+animation attaque
 
 Julien BAILLY :
-Creation du labyrinthe initial 
+attaque joueur
+attaque monstre
