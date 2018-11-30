@@ -46,8 +46,16 @@ public class Joueur extends Entite{
 		}
 	}
 
+	private int slow = 0;
+	private static final int TEMPS_ENTRE_ACTION = 2;
+	
 	@Override
 	protected void update(Commande commande) {
+		slow++;
+		if (slow%TEMPS_ENTRE_ACTION!=0){
+			commande = new Commande();
+		}
+		slow%=TEMPS_ENTRE_ACTION;
 		if(commande.droite) {
 			droite();
 		}

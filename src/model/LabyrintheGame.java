@@ -48,7 +48,7 @@ public class LabyrintheGame implements Game {
 	 * Represente le niveau actuel
 	 */
 	protected int levelActuel;
-	private static int MAX_LEVEL = 3;
+	private static int MAX_LEVEL = 4;
 	
 	/**
 	 * Liste de monstres
