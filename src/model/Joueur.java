@@ -2,6 +2,8 @@ package model;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
+import java.util.ArrayList;
 
 import moteurJeu.Commande;
 import moteurJeu.PanelDessin;
@@ -12,6 +14,7 @@ public class Joueur extends Entite{
 	public int attaque;
 	private int slow = 0;
 	private static final int TEMPS_ENTRE_ACTION = 2;
+	private static final int ATTACK_DAMAGE = 20;
 	
 	public Joueur(LabyrintheGame lab) {
 		this.x = 5;
@@ -38,7 +41,7 @@ public class Joueur extends Entite{
 			if(attaque==1) {
 				g.drawImage(SpriteLoader.getknight(1), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);				
 			}else {
-			g.drawImage(SpriteLoader.getknight(0), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
+				g.drawImage(SpriteLoader.getknight(0), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
 			}
 		} else {
 			if (inScreen(entite)) {
@@ -68,15 +71,35 @@ public class Joueur extends Entite{
 			bas();
 		}
 		if(commande.attaque) {
+			attaquer();
 			attaque=0;
 		}
 	}
 
-
 	@Override
 	public void attaquer() {
-		// TODO Auto-generated method stub
-		
+		ArrayList<Monstre> monstres = this.labyrinthe.getMonstres();
+		//Si on attend bien la fin de l'annimation on tape 2 fois damage
+		if (attaque == -1){
+			for (Monstre m : monstres) {
+				if (calculerDistance(new Point(x,y), new Point(m.x,m.y))<=1){
+					m.takeDamage(2*ATTACK_DAMAGE);
+				}
+			}			
+		} else { 
+			//Si on spam, on tape que la moitié des dommages
+			for (Monstre m : monstres) {
+				if (calculerDistance(new Point(x,y), new Point(m.x,m.y))<=1){
+					m.takeDamage((int)(0.5*ATTACK_DAMAGE));
+				}
+			}
+		}
+	}
+	
+	private int calculerDistance(Point p1 , Point p2){
+		int res = Math.abs((Math.abs(p1.x)-Math.abs(p2.x)));
+		res += Math.abs((Math.abs(p1.y)-Math.abs(p2.y)));
+		return res;
 	}
 	
 	
