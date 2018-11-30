@@ -25,6 +25,8 @@ public abstract class Entite extends Dessinable{
 	 */
 	protected LabyrintheGame labyrinthe;
 
+
+	private boolean drunk;
 	/**
 	 * Permet au moteur de mettre a jour l'entite a chaque iteration du jeu 
 	 * @param commande Commande representant l'input clavier a l'iteration du jeu 
@@ -134,6 +136,17 @@ public abstract class Entite extends Dessinable{
 
 	public void takeDamage(int damage){
 		vie -= damage;
+	}
+	public void boire(){
+		drunk= true;
+	}
+	
+	public void nonboire(){
+		drunk= false;
+	}
+	
+	public boolean isdrunk() {
+		return drunk;
 	}
 
 	public boolean isdead(){

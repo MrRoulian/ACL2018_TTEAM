@@ -79,6 +79,7 @@ public class LabyrintheGame implements Game {
 		
 		// Initialisation du joueur 
 		joueur = new Joueur(this);
+		joueur.nonboire();
 		
 		//Initialisation des monstres
 		int randX=0,randY=0;
@@ -122,6 +123,7 @@ public class LabyrintheGame implements Game {
 			
 			// Initialisation du joueur 
 			joueur = new Joueur(this);
+			joueur.nonboire();
 		// Initialisation du level a 1
 			levelActuel = -1;
 			//MAX_LEVEL = 1;

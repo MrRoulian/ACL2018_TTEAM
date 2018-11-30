@@ -23,6 +23,7 @@ public class Joueur extends Entite{
 		this.triggerCase = true;
 		this.vie=100;
 		attaque=-1;
+		this.nonboire();
 	}
 
 	@Override
@@ -59,16 +60,32 @@ public class Joueur extends Entite{
 		}
 		slow%=TEMPS_ENTRE_ACTION;
 		if(commande.droite) {
-			droite();
+			if(!isdrunk()) {
+				droite();
+			}else {
+				gauche();
+			}
 		}
 		if(commande.gauche) {
-			gauche();
+			if(!isdrunk()) {
+				gauche();
+			}else {
+				droite();
+			}
 		}
 		if(commande.haut) {
-			haut();
+			if(!isdrunk()) {
+				haut();
+			}else {
+				bas();
+			}
 		}
 		if(commande.bas) {
-			bas();
+			if(!isdrunk()) {
+				bas();
+			}else {
+				haut();
+			}
 		}
 		if(commande.attaque) {
 			attaquer();
