@@ -18,6 +18,7 @@ public class Magique extends Special {
 	@Override
 	public void trigger(Entite entite) {
 		if (!triggered) {
+			triggered=true;
 			boolean bump =false;
 			LabyrintheGame lab =entite.labyrinthe;
 			while(!bump) {
@@ -49,7 +50,6 @@ public class Magique extends Special {
 				}
 				orientation = (int)(Math.random()*4);
 			}
-			triggered=true;
 			this.traversable=false;
 		}
 		
