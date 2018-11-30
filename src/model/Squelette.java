@@ -22,10 +22,6 @@ public class Squelette extends Monstre {
 		}
 	}
 
-	@Override
-	public void attaquer() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

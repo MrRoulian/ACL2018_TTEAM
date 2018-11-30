@@ -113,11 +113,7 @@ public class Joueur extends Entite{
 		}
 	}
 	
-	private int calculerDistance(Point p1 , Point p2){
-		int res = Math.abs((Math.abs(p1.x)-Math.abs(p2.x)));
-		res += Math.abs((Math.abs(p1.y)-Math.abs(p2.y)));
-		return res;
-	}
+
 	
 	
 	public void setPosition(int x1,int y1) {

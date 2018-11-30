@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 import moteurJeu.Commande;
 
 public class Aleatoire implements Comportement {
@@ -27,6 +29,14 @@ public class Aleatoire implements Comportement {
 			case 3:
 				c.bas = true;
 				break;
+		}
+		
+
+		int res = Math.abs((Math.abs(posX)-Math.abs(labyrinthe.getJoueur().getX())));
+		res += Math.abs((Math.abs(posY)-Math.abs(labyrinthe.getJoueur().getY())));
+		
+		if(res <= 1) {
+			c.attaque = true;
 		}
 		return c;
 	}
