@@ -176,6 +176,8 @@ public class LabyrintheGame implements Game {
 						end = true;
 					}
 				} while (!end);
+
+				joueur.nonboire();
 				// On supprime les ancien monstres 
 				monstres.clear();
 
@@ -284,6 +286,7 @@ public class LabyrintheGame implements Game {
 
 		map.construire(1);
 		joueur = new Joueur(this);
+		joueur.nonboire();
 		monstres.clear();
 		//Initialisation des monstres
 		int randX=0,randY=0;
