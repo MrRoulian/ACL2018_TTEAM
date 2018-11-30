@@ -34,7 +34,7 @@ public class Labyrinthe {
 	 * Constructeur de base qui cree une map de niveau 1
 	 */
 	public Labyrinthe(){
-		construire(5);
+		construire(1);
 	}
 	
 	/**
