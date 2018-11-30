@@ -105,6 +105,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		// Ajout des fichier de map a la liste 
 		level4.add("map/level4map1.csv");
 		level4.add("map/level4map2.csv");
+		level4.add("map/level4map3.csv");
 		// Ajout de la liste a la map 
 		mapFichierMapParLevel.put(4, level4);
 		// ----- Map de level 5 ----- //
@@ -112,6 +113,7 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 		ArrayList<String> level5 = new ArrayList<String>();
 		// Ajout des fichier de map a la liste 
 		level5.add("map/level5map1.csv");
+		level5.add("map/level5map2.csv");
 		// Ajout de la liste a la map 
 		mapFichierMapParLevel.put(5, level5);
 	}
