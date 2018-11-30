@@ -24,26 +24,26 @@ public class Magique extends Special {
 				switch (orientation){
 				case 0:
 					if(lab.map.getCase(x, y-1).traversable) {
-						entite.haut();
 						bump=true;
+						entite.haut();
 					}
 					break;
 				case 1:
 					if(lab.map.getCase(x, y+1).traversable) {
-						entite.bas();
 						bump=true;
+						entite.bas();
 					}
 					break;
 				case 2:
 					if(lab.map.getCase(x-1, y).traversable) {
-						entite.gauche();
 						bump=true;
+						entite.gauche();
 					}
 					break;
 				case 3:
 					if(lab.map.getCase(x+1, y).traversable) {
-						entite.droite();
 						bump=true;
+						entite.droite();
 					}
 					break;
 				}
