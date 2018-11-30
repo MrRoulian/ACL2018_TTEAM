@@ -283,7 +283,7 @@ public class LabyrintheGame implements Game {
 	
 	public void regame() {
 		// Initialisation du joueur 
-
+		levelActuel=1;
 		map.construire(1);
 		joueur = new Joueur(this);
 		joueur.nonboire();
