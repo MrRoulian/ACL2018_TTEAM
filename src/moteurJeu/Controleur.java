@@ -64,6 +64,11 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
 			break;
+		// si on appuie sur 't',commande joueur est bas
+		case ' ':
+			this.commandeEnCours.attaque = true;
+			this.commandeARetourner.attaque = true;
+			break;
 		}
 
 	}
@@ -85,6 +90,10 @@ public class Controleur implements KeyListener {
 			break;
 		case 's':
 			this.commandeEnCours.bas = false;
+			break;
+		// si on appuie sur 't',commande joueur est bas
+		case ' ':
+			this.commandeEnCours.attaque = false;
 			break;
 		}
 
