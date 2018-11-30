@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 import moteurJeu.Commande;
 /**
  * Classe abstraite representant le comportement d'une entite vivate dans le jeu
@@ -138,4 +140,9 @@ public abstract class Entite extends Dessinable{
 		return vie <= 0;
 	}
 
+	protected int calculerDistance(Point p1 , Point p2){
+		int res = Math.abs((Math.abs(p1.x)-Math.abs(p2.x)));
+		res += Math.abs((Math.abs(p1.y)-Math.abs(p2.y)));
+		return res;
+	}
 }

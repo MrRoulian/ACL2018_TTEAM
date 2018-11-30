@@ -69,6 +69,13 @@ public class Intelligent implements Comportement {
 				commande.bas = true;
 			}
 		}
+		//Si on est au contact avec le joueur, on attaque
+		int res = Math.abs((Math.abs(posX)-Math.abs(labyrinthe.getJoueur().getX())));
+		res += Math.abs((Math.abs(posY)-Math.abs(labyrinthe.getJoueur().getY())));
+		
+		if(res <= 1) {
+			commande.attaque = true;
+		}
 		return commande;
 	}
 
