@@ -7,7 +7,7 @@ import moteurJeu.Commande;
 import moteurJeu.PanelDessin;
 
 public abstract class Monstre extends Entite {
-	
+
 	protected Comportement comportement;
 
 	public Monstre(Comportement c, int x , int y, LabyrintheGame lab) {
@@ -18,10 +18,10 @@ public abstract class Monstre extends Entite {
 		this.triggerCase = false;
 		this.vie=100;
 	}
-	
+
 	@Override
 	protected void update(Commande com) {
-		
+
 		Commande commande = comportement.bouger(this.x, this.y, labyrinthe);
 		if(commande.droite) {
 			droite();
@@ -60,7 +60,7 @@ public abstract class Monstre extends Entite {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Dessine le sprite donné a la position de la case relative a la position de l'entite donnée 
 	 * @param g Image sur laquel on dessine
@@ -77,20 +77,22 @@ public abstract class Monstre extends Entite {
 				(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin), 
 				LabyrinthePainter.WIDTH, 
 				LabyrinthePainter.HEIGHT,
-				null); 
-		 int j=0;
-		 while(j<10) {
-			 if(j*10<this.vie) {
+				null);
+		
+		if (!isdead()){
+			int j=0;
+			while(j<10) {
+				if(j*10<this.vie) {
 					g.drawImage(SpriteLoader.getHeart(0),(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin+10*j), 
 							(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin-10), 
 							10,10,null);  
-			 }else {
+				}else {
 					g.drawImage(SpriteLoader.getHeart(2),(int)(x * LabyrinthePainter.WIDTH - entite.getX() * LabyrinthePainter.WIDTH + xDessin+10*j), 
 							(int)(y * LabyrinthePainter.HEIGHT - entite.getY() * LabyrinthePainter.HEIGHT + yDessin-10), 
 							10, 10,null); 
-			 }
-			 j++;
-		 }
-		
+				}
+				j++;
+			}			
+		}
 	}
 }
