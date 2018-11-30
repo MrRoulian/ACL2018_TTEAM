@@ -1,0 +1,15 @@
+Sprint 1 :
+Alexis ABLI-BOUYO :
+Adaptation d'une interface graphique
+Representation des cases du labyrinthe
+
+Alexis BARTHELEMY :
+Adaptation d'une interface graphique
+Affichage des elements du jeu 
+
+Gauthier BRIN :
+Deplacement du Hero 
+Collision avec les mur 
+
+Julien BAILLY :
+Creation du labyrinthe initial 
