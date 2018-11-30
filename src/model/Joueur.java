@@ -9,6 +9,7 @@ import moteurJeu.PanelDessin;
 public class Joueur extends Entite{
 
 	public static int test=0;
+	public int attaque;
 	
 	public Joueur(LabyrintheGame lab) {
 		this.x = 5;
@@ -16,6 +17,7 @@ public class Joueur extends Entite{
 		this.labyrinthe=lab;
 		this.triggerCase = true;
 		this.vie=100;
+		attaque=-1;
 	}
 
 	@Override
@@ -23,7 +25,19 @@ public class Joueur extends Entite{
 		if (entite == this) {
 			int xDessin = PanelDessin.getWindowsWidth() / 2;
 			int yDessin = PanelDessin.getWindowsHeight() / 2;
+			if(attaque>=0) {
+				
+				g.drawImage(SpriteLoader.getfire(attaque), xDessin-100, yDessin-100, LabyrinthePainter.WIDTH*3, LabyrinthePainter.HEIGHT*3,null);			
+				attaque+=1;
+				if(attaque>7) {
+					attaque=-1;
+				}
+			}
+			if(attaque==1) {
+				g.drawImage(SpriteLoader.getknight(1), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);				
+			}else {
 			g.drawImage(SpriteLoader.getknight(0), xDessin, yDessin, LabyrinthePainter.WIDTH, LabyrinthePainter.HEIGHT,null);			
+			}
 		} else {
 			if (inScreen(entite)) {
 				Image sprite = SpriteLoader.getknight(0);
@@ -53,6 +67,9 @@ public class Joueur extends Entite{
 		}
 		if(commande.bas) {
 			bas();
+		}
+		if(commande.attaque) {
+			attaque=0;
 		}
 	}
 	

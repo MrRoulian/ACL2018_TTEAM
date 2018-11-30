@@ -27,7 +27,10 @@ public class SpriteLoader {
 	private volatile static ArrayList<Image> fond =null;
 	private volatile static Image gameover=null;
 	private volatile static Image win=null;
+	private volatile static Image potion=null;
+	private volatile static ArrayList<Image> fire =null;
 	private static int compteur=0;
+	private static int compteurfire=0;
 	
 	public static Image getCompteur() {
 		if(piece==null) {
@@ -97,8 +100,8 @@ public class SpriteLoader {
 		if(knight==null) {
 			try {
 				knight=new ArrayList<Image>();
-				knight.add( ImageIO.read(new File(SPRITE_ROUTE + "knight.png")));
-				knight.add( ImageIO.read(new File(SPRITE_ROUTE + "knightAttack.png")));
+				knight.add( ImageIO.read(new File(SPRITE_ROUTE + "knight2.png")));
+				knight.add( ImageIO.read(new File(SPRITE_ROUTE + "knightAttack2.png")));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -233,12 +236,40 @@ public class SpriteLoader {
 	public static Image getWin(){
 		if(win==null) {
 			try {
-				gameover=ImageIO.read(new File(SPRITE_ROUTE +"WIN.png"));
+				win=ImageIO.read(new File(SPRITE_ROUTE +"WIN.png"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}	
 		return win;
+	}
+	public static Image getPotion(){
+		if(potion==null) {
+			try {
+				potion=ImageIO.read(new File(SPRITE_ROUTE +"life.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return potion;
+	}
+	public static Image getfire(int id){
+		if(fire==null) {
+			try {
+				fire=new ArrayList<Image>();
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire6.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire0.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire1.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire2.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire3.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire4.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire5.png")));
+				fire.add( ImageIO.read(new File(SPRITE_ROUTE +"fire6.png")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return fire.get(id);
 	}
 	
 }

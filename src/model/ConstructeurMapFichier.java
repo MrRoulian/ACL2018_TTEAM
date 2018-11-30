@@ -40,7 +40,10 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 	 * Code de la case de type Magique
 	 */
 	private static final int CODE_CASE_MAGIQUE = 5;
-
+	/**
+	 * Code de la case de type Magique
+	 */
+	private static final int CODE_CASE_POTION = 6;
 	/**
 	 * Map contenant pour chaque niveaux une liste de chaine correspondant a une map 
 	 */
@@ -153,7 +156,9 @@ public class ConstructeurMapFichier implements ConstructeurMap{
 					case CODE_CASE_MAGIQUE:
 						map[j][i]=new Magique(j,i);
 						break;
-
+					case CODE_CASE_POTION:
+						map[j][i]=new Potion(j,i);
+						break;
 					}
 				}
 				line = br.readLine();
