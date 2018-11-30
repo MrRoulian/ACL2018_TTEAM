@@ -20,10 +20,7 @@ public class Intelligent implements Comportement {
 	 * variable de ralentissement d'action
 	 */
 	private int slow = 0;
-	/**
-	 * Duree du temporisateur d'action 
-	 */
-	private static final int TEMPS_ENTRE_ACTION = 5;
+	
 	@Override
 	public Commande bouger(int posX, int posY, LabyrintheGame labyrinthe) {
 		// Creation de la commande 

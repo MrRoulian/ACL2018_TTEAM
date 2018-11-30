@@ -5,7 +5,6 @@ import moteurJeu.Commande;
 public class Aleatoire implements Comportement {
 	
 	private int slow = 0;
-	private static final int TEMPS_ENTRE_ACTION = 5;
 
 	@Override
 	public Commande bouger(int posX, int posY, LabyrintheGame labyrinthe) {
