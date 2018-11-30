@@ -9,6 +9,7 @@ import moteurJeu.PanelDessin;
 public abstract class Monstre extends Entite {
 	
 	protected Comportement comportement;
+	public final static int DEGATSMONSTRE = 10;
 
 	public Monstre(Comportement c, int x , int y, LabyrintheGame lab) {
 		this.comportement = c;
@@ -34,6 +35,9 @@ public abstract class Monstre extends Entite {
 		}
 		if(commande.bas) {
 			bas();
+		}
+		if(commande.attaque) {
+			attaquer();
 		}
 	}
 
@@ -91,6 +95,16 @@ public abstract class Monstre extends Entite {
 			 }
 			 j++;
 		 }
+		
+	}
+	
+	@Override
+	public void attaquer() {
+		//System.out.println("ddfe");
+		if(!isdead()) {
+			labyrinthe.getJoueur().takeDamage(DEGATSMONSTRE);
+		}
+		
 		
 	}
 }
