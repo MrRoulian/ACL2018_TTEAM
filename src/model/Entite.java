@@ -36,6 +36,11 @@ public abstract class Entite extends Dessinable{
 	public int getY() {
 		return y;
 	}
+	
+	/**
+	 * Methode permettant d'attaquer les entités autour de celle ci
+	 */
+	public abstract void attaquer();
 
 	/**
 	 * Methode qui deplace l'entite sur la droite

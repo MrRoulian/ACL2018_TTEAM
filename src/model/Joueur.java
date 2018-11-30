@@ -10,6 +10,8 @@ public class Joueur extends Entite{
 
 	public static int test=0;
 	public int attaque;
+	private int slow = 0;
+	private static final int TEMPS_ENTRE_ACTION = 2;
 	
 	public Joueur(LabyrintheGame lab) {
 		this.x = 5;
@@ -45,9 +47,6 @@ public class Joueur extends Entite{
 			}
 		}
 	}
-
-	private int slow = 0;
-	private static final int TEMPS_ENTRE_ACTION = 2;
 	
 	@Override
 	protected void update(Commande commande) {
@@ -72,6 +71,14 @@ public class Joueur extends Entite{
 			attaque=0;
 		}
 	}
+
+
+	@Override
+	public void attaquer() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	public void setPosition(int x1,int y1) {
 		this.x=x1;

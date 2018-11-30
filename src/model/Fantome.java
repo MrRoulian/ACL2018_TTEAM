@@ -23,4 +23,10 @@ public class Fantome extends Monstre {
 		}
 	}
 
+	@Override
+	public void attaquer() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
