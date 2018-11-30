@@ -10,7 +10,7 @@ import moteurJeu.PanelDessin;
 
 public class Joueur extends Entite{
 
-	public static int test=0;
+	//public static int test=0;
 	public int attaque;
 	private int slow = 0;
 	private static final int TEMPS_ENTRE_ACTION = 2;

@@ -1,0 +1,5 @@
+Implémentation des monstres (squelettes, fantômes) sans attaques avec comportement aléatoire : Julien Bailly
+Implémentation comportement intéligent du squelette (Dijsktra) : Alexis Barthelemy
+Recherche/Création des sprites : Alexis Abli-Bouyo
+Bitmasking (Sprites), créations des différentes maps : Gauthier Brin
+Amélioration design, correction de bugs : Tous le monde
